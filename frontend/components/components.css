@@ -1,0 +1,12 @@
+:root{
+    --pale-green: #C4C7C2;
+    --pale-pink: #AE96A6;
+    --dark-brown: #5A4C59;
+    --dirty-biege: #877875;
+}
+
+*{
+    margin: 0;
+    padding: 0;
+    font-family: "Poppins", sans-serif;
+}
