@@ -1,0 +1,43 @@
+
+main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+main > div {height: 100vh;}
+main > div:nth-child(1){
+    width: 55%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+main > div:nth-child(2){
+    width: 45%;
+    background-color: var(--pale-green);
+}
+
+#login-logo-img-container{
+    height: 3rem;
+    width: 3rem;
+
+}
+#login-logo-img-container > img{
+    height: 100%;
+    width: 100%;
+}
+
+main > div:nth-child(1) > form {
+    display: flex;
+    flex-direction: column;
+}
+
+main > div:nth-child(1) > form > .btn{
+    width: 3rem;
+    color: #000000;
+}
+
+main > div:nth-child(1) > form > input {
+    color: #000000;
+}

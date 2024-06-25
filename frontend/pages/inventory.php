@@ -5,10 +5,10 @@ include("../components/header.php");
 ?>
 
 <style>
-    <?php include("../CSS/index.css")?>
+    <?php include("../CSS/inventory.css")?>
 </style>
 
-Dashboard
+Inventory
 
 <?php
 

@@ -10,6 +10,29 @@
     <title>Document</title>
 </head>
 <body>
-    <header>
-        Header
-    </header>
+
+
+        <?php
+            // echo $_SERVER["PHP_SELF"];
+
+            if ($_SERVER["PHP_SELF"] != "/J-G_Beauty_Salon/frontend/pages/login.php" &&
+                $_SERVER["PHP_SELF"] != "/J-G_Beauty_Salon/frontend/pages/signup.php" &&
+                $_SERVER["PHP_SELF"] != "/J-G_Beauty_Salon/frontend/pages/positions.php") {
+                $username = $_COOKIE["username"];
+                echo '
+                        <header>
+                            <div id="logo-img-container">
+                                <img src="../images/J&G_Beauty _Salon.png" alt="J&G Beauty Salon">
+                            </div>
+
+                            <div>
+                                <h4>' . $username . '</h4>
+                                <div id="account-image-holder">
+                                    <img src="../images/account_circle.png" alt="account logo">
+                                </div>
+                            </div>
+
+                        </header>
+                ';
+            }
+        ?>

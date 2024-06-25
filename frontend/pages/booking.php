@@ -5,10 +5,10 @@ include("../components/header.php");
 ?>
 
 <style>
-    <?php include("../CSS/index.css")?>
+    <?php include("../CSS/booking.css")?>
 </style>
 
-Dashboard
+Booking
 
 <?php
 

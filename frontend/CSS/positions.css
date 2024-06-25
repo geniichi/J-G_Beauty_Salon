@@ -1,0 +1,28 @@
+
+.signup-position-checkbox{
+    display: flex;
+    align-items: center;
+}
+
+.btn{
+    color: #000000;
+}
+
+main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+main > div {height: 100vh;}
+main > div:nth-child(2){
+    width: 55%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+main > div:nth-child(1){
+    width: 45%;
+    background-color: var(--pale-green);
+}

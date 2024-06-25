@@ -1,0 +1,43 @@
+
+main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+main > div {height: 100vh;}
+main > div:nth-child(2){
+    width: 55%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+main > div:nth-child(1){
+    width: 45%;
+    background-color: var(--pale-green);
+}
+
+#signup-logo-img-container{
+    height: 3rem;
+    width: 3rem;
+
+}
+#signup-logo-img-container > img{
+    height: 100%;
+    width: 100%;
+}
+
+main > div:nth-child(2) > form {
+    display: flex;
+    flex-direction: column;
+}
+
+main > div:nth-child(2) > form > input{
+    color: #000000;
+}
+
+main > div:nth-child(2) > form > .btn{
+    width: 4rem;
+    color: #000000;
+}
