@@ -5,10 +5,14 @@ include("../components/header.php");
 ?>
 
 <style>
-    <?php include("../CSS/booking.css")?>
+    <?php include("../CSS/index.css")?>
 </style>
 
-Booking
+
+<main>
+    <?php include("../components/side_navbar.php");?>
+    Booking
+</main>
 
 <?php
 

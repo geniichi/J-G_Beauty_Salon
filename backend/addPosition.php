@@ -37,6 +37,7 @@
             mysqli_query($conn, $sql);
         }
 
+        setcookie("user_id", "$staff_ID", time() - 0, "/");
         header("Location: ../frontend/pages/login.php");
 
     }

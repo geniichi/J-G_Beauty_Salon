@@ -3,6 +3,7 @@
     --pale-pink: #AE96A6;
     --dark-brown: #5A4C59;
     --dirty-biege: #877875;
+    --light-biege: #a2908c;
 }
 
 *{
@@ -22,6 +23,7 @@ header {
     align-items: center;
     padding: 0.5rem 3rem;
     background-color: var(--dark-brown);
+    position: relative;
 }
 
 header > #logo-img-container{
@@ -37,15 +39,62 @@ header > #logo-img-container > img{
 header > div:nth-child(2){
     display: flex;
     align-items: center;
+    justify-content: center;
 }
 
-header > div > #account-image-holder{
+.material-symbols-outlined{
+    cursor: pointer;
+}
+
+header > div:nth-child(2) > .material-symbols-outlined{
     width: 2rem;
     height: 2rem;
     margin-left: 1rem;
+    font-size: 2rem;
 }
 
-header > div > #account-image-holder > img{
-    height: 100%;
-    width: 100%;
+#side-navbar{
+    width: 5rem;
+    background-color: var(--pale-green);
+    height:90.7vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.side-navabr-icons{
+    margin-top: 2rem;
+}
+#side-navbar > div > a > .material-symbols-outlined{
+    color: rgb(184, 159, 97);
+    font-size: 2rem;
+}
+
+main {
+    display: flex;
+}
+
+a {
+    text-decoration: none;
+}
+
+#header-account-dropdown {
+    opacity: 0;
+    max-height: 0;
+    overflow: hidden;
+    transition: opacity 0.3s ease, max-height 0.3s ease;
+    position: absolute;
+    right: 2rem;
+    top: 5rem;
+    background-color: #ffffff;
+    width: 5rem;
+    padding: 0.5rem 1rem;
+}
+#header-account-dropdown ul li a{
+    color: #000000;
+}
+
+#header-account-dropdown.active {
+    opacity: 1;
+    max-height: 200px;
 }

@@ -1,0 +1,22 @@
+select, input, option {
+    color: #000000;
+}
+
+main > div{
+    padding: 1.5rem;
+    width: 100%;
+}
+
+main > div > form{
+    displaY: flex;
+    justify-content: center;
+    width: 100%;
+    background-color: var(--light-biege);
+    justify-content: space-between;
+    margin-bottom: 3rem;
+}
+
+.inventory-rows{
+    display: flex;
+    justify-content: space-around;
+}

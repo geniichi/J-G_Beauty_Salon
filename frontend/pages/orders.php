@@ -11,7 +11,7 @@ include("../components/header.php");
 
 <main>
     <?php include("../components/side_navbar.php");?>
-    Dashboard
+    Orders
 </main>
 
 <?php
