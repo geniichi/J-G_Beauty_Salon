@@ -11,7 +11,9 @@ include("../components/header.php");
 
 <main>
     <?php include("../components/side_navbar.php");?>
-    Orders
+    <div>
+        Orders
+    </div>
 </main>
 
 <?php

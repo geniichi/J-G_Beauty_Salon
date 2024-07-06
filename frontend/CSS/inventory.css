@@ -1,22 +1,81 @@
-select, input, option {
+select, input, option, button {
     color: #000000;
 }
-
-main > div{
-    padding: 1.5rem;
+main > div {
+    margin: 6.5rem 3.5rem 2.5rem 8.5rem;
+    padding: 1rem;
     width: 100%;
+    background-color: #ac9c99;
+    border-radius: 0.7rem;
+    box-shadow: 0 0 5px 5px rgba(0, 0, 0, 0.2);
+    min-height: 73vh;
 }
-
-main > div > form{
+main > div > div{
+    display: flex;
+}
+main > div > div a{
+    margin-left: 2rem;
+}
+main > div > div a button{
+    border: 2px solid #ffffff;
+    display: flex;
+    align-items: center;
+    padding: 0.5rem;
+    border-radius: 0.3rem;
+    background-color: var(--dirty-biege);
+    color: #ffffff;
+    width: 8rem;
+}
+#empty_productRows{
+    text-align: center;
+}
+#search-form{
     displaY: flex;
-    justify-content: center;
     width: 100%;
-    background-color: var(--light-biege);
     justify-content: space-between;
     margin-bottom: 3rem;
 }
-
-.inventory-rows{
+#search-form .material-symbols-outlined{
+    cursor:auto;
+}
+#search-form > div:nth-child(1) {
     display: flex;
-    justify-content: space-around;
+    align-items: center;
+    border-radius: 0.3rem;
+    overflow-y: hidden;
+    background-color: #FFFFFF;
+    padding: 0.1rem 0.3rem;
+}
+#search-form > div:nth-child(1) input{
+    border: none;
+    padding: 0.5rem;
+    width: 20rem;
+}
+#search-form > div:nth-child(1) span{
+    display: flex;
+    align-items: center;
+    background-color: #FFFFFF;
+    color: #636060;
+    height: 100%;
+}
+#search-form > div:nth-child(1){
+    display: flex;
+}
+#search-form > div:nth-child(2){
+    display: flex;
+    justify-content: space-between;
+    width: 36rem;
+}
+#search-form > div:nth-child(2) select{
+    border: none;
+    border-radius: 0.3rem;
+    padding: 0rem 0.5rem;
+}
+#inventoryItem_row{
+    display: flex;
+    justify-content: space-between;
+    cursor: pointer;
+    border: 1px solid #000000;
+    margin-bottom: 0.5rem;
+    padding: 1rem;
 }

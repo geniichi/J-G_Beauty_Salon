@@ -1,0 +1,69 @@
+main > div {
+    margin: 4rem 0rem 0rem 5rem;
+    width: 100%;
+    height: 100%;
+    border: 1px solid #000000;
+    position: relative;
+}
+#addForm_main {
+    display: flex;
+    padding: 2rem;
+}
+#addForm_main > div{
+    display: flex;
+    flex-direction: column;
+}
+#addForm_main > div:nth-child(1){
+    width: 50%;
+    align-items: center;
+}
+#img-showcase-container{
+    display: none;
+    width: 10rem;
+    height: 10rem;
+}
+#img-showcase-container img{
+    width: 100%;
+    height: 100%;
+}
+#img-uploader{
+    position: relative;
+    width: 17rem;
+    height: 20rem;
+    border: 2px solid #ccc;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    background-color: #fff;
+}
+#img-uploader > input {
+    display: none;
+}
+
+#img-uploader > label {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+#img-uploader span{
+    color: #000000;
+    font-size: 5rem;
+}
+/* Second Half */
+#addForm_main > div:nth-child(2){
+    width: 50%;
+}
+#addForm_main > div:nth-child(2) > div{
+    display: flex;
+}
+#addForm_main > div:nth-child(2) p{
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    border: 1px solid #000000;
+    border-radius: 0.3rem;
+}

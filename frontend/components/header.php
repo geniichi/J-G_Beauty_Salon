@@ -23,9 +23,9 @@
 
             if(isset($_COOKIE["username"])){
 
-                if ($_SERVER["PHP_SELF"] != "/J-G_Beauty_Salon/frontend/pages/login.php" &&
-                $_SERVER["PHP_SELF"] != "/J-G_Beauty_Salon/frontend/pages/signup.php" &&
-                $_SERVER["PHP_SELF"] != "/J-G_Beauty_Salon/frontend/pages/positions.php") {
+                if ($_SERVER["PHP_SELF"] != "/frontend/pages/login.php" &&
+                $_SERVER["PHP_SELF"] != "/frontend/pages/signup.php" &&
+                $_SERVER["PHP_SELF"] != "/frontend/pages/positions.php") {
                     $username = $_COOKIE["username"];
 
 
@@ -54,8 +54,5 @@
                     ';
                 }
             }
-            // else {
-            //     header("Location: ../pages/login.php");
-            // }
 
         ?>
