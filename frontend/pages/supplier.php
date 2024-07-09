@@ -7,6 +7,7 @@
     echo (isset($_GET["supplier_active"])) ? '<div id="supplier_form_active">' : '<div id="supplier_form_hidden">';
 ?>
     <form action="../../backend/supplier.php" method="post" id="supplier_section">
+
         <div>
             <h1>Suppliers</h1>
             <div>
@@ -54,8 +55,32 @@
                 <input type="hidden" name="delete_ID" id="deleteSupplier_ID">
                 <button type="submit" name="delete_path" value="delete_path">Delete</button>
             </div>
+            <?php
+                $sentence = $_SERVER["REQUEST_URI"];
+
+                if(strpos($sentence, 'addProduct.php') !== false) {
+                    echo '<input type="hidden" name="link_redirect" value="1">';
+                } else if(strpos($sentence, 'singleProduct.php') !== false){
+                    echo '<input type="hidden" name="link_redirect" value="2">';
+                    $parsedUrl = parse_url($sentence);
+                    parse_str($parsedUrl['query'], $queryParams);
+                    $ID = $queryParams['product_ID'];
+                    echo '<input type="hidden" name="product_ID" value="' . $ID . '">';
+                }
+            ?>
         </div>
-        <div id="supplier_close_form" onclick="closeForm()">
+        <?php
+            $sentence = $_SERVER["REQUEST_URI"];
+
+            if(strpos($sentence, 'addProduct.php') !== false) {
+                echo '<div id="supplier_close_form" onclick="closeForm1()">';
+            } else if(strpos($sentence, 'singleProduct.php') !== false){
+                $parsedUrl = parse_url($sentence);
+                parse_str($parsedUrl['query'], $queryParams);
+                $ID = $queryParams['product_ID'];
+                echo '<div id="supplier_close_form" onclick="closeForm2(' . $ID . ')">';
+            }
+        ?>
             <span class="material-symbols-outlined">
                 close
             </span>

@@ -29,4 +29,6 @@ if(isset($_POST['Add'])){
     }
 
     mysqli_close($conn);
+
+    header("Location: ../frontend/pages/addProduct.php");
 }

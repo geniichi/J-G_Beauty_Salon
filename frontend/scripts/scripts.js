@@ -41,23 +41,66 @@ function open_supplierForm(){
 function open_productClass_form(){
     window.location = "http://localhost:3000/frontend/pages/addProduct.php?productClass_active=1";
 }
-function closeForm(){
+function closeForm1(){
     window.location = "http://localhost:3000/frontend/pages/addProduct.php";
 }
 
+function open_supplierForm2(ID){
+    window.location = "http://localhost:3000/frontend/pages/singleProduct.php?product_ID=" + ID + "&supplier_active=1";
+}
+function open_productClass_form2(ID){
+    window.location = "http://localhost:3000/frontend/pages/singleProduct.php?product_ID=" + ID + "&productClass_active=1";
+}
+function closeForm2(ID){
+    window.location = "http://localhost:3000/frontend/pages/singleProduct.php?product_ID=" + ID;
+}
+
 function previewImage(event) {
+    const file = event.target.files[0];
+    const img_container = document.getElementById('img-showcase-container');
+    const img_upload = document.getElementById('img-uploader');
+    const img_upload_text = document.getElementById('img-uploader-text');
+    if (file) {
+        const reader = new FileReader();
+        reader.onload = function(e) {
+            const imgPreview = document.getElementById('img-showcase');
+            imgPreview.src = e.target.result;
+            img_container.style.display = "flex";
+            img_upload.style.marginTop = "0rem";
+            img_upload_text.style.display = "none";
+        }
+        reader.readAsDataURL(file);
+    } else {
+        img_container.style.display = "none";
+        img_upload.style.marginTop = "6rem";
+        img_upload_text.style.display = "inline";
+    }
+}
+
+function changeImage(event) {
     const file = event.target.files[0];
     if (file) {
         const reader = new FileReader();
         reader.onload = function(e) {
             const imgPreview = document.getElementById('img-showcase');
-            const img_container = document.getElementById('img-showcase-container');
             imgPreview.src = e.target.result;
-            img_container.style.display = "block";
         }
         reader.readAsDataURL(file);
-    } else {
-        const img_container = document.getElementById('img-showcase-container');
-        img_container.style.display = "none";
     }
+}
+
+function removeImage(){
+    const img_container = document.getElementById('img-showcase-container');
+    const img_upload = document.getElementById('img-uploader');
+    const img_upload_text = document.getElementById('img-uploader-text');
+    const imgPreview = document.getElementById('img-showcase');
+    const fileInput = document.getElementById('file-input');
+
+    fileInput.value = '';
+
+    img_container.style.display = "none";
+    img_upload.style.marginTop = "2rem";
+    img_upload_text.style.display = "inline";
+
+    imgPreview.src = '';
 }

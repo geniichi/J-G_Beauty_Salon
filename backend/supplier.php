@@ -1,10 +1,17 @@
 <?php
 include("./connect.php");
 
+$link = $_POST["link_redirect"];
+
 
 if(isset($_POST["add_path"])){
     if(empty($_POST["addSupplier_name"])){
-        header("Location: ../frontend/pages/addProduct.php");
+        if($link == 1){
+            header("Location: ../frontend/pages/addProduct.php?supplier_active=1");
+        } else if($link == 2){
+            $product_ID = $_POST["product_ID"];
+            header("Location: ../frontend/pages/singleProduct.php?product_ID=" . $product_ID . "&supplier_active=1");
+        }
     } else {
         $name = $_POST["addSupplier_name"];
         $number = $_POST["contact"];
@@ -12,7 +19,13 @@ if(isset($_POST["add_path"])){
         $sql = "INSERT INTO supplier(name, contact) VALUES ('$name', '$number')";
         mysqli_query($conn, $sql);
         mysqli_close($conn);
-        header("Location: ../frontend/pages/addProduct.php?supplier_active=1");
+
+        if($link == 1){
+            header("Location: ../frontend/pages/addProduct.php?supplier_active=1");
+        } else if($link == 2){
+            $product_ID = $_POST["product_ID"];
+            header("Location: ../frontend/pages/singleProduct.php?product_ID=" . $product_ID . "&supplier_active=1");
+        }
     }
 }
 if(isset($_POST["update_path"])){
@@ -24,7 +37,13 @@ if(isset($_POST["update_path"])){
 
     mysqli_query($conn, $sql);
     mysqli_close($conn);
-    header("Location: ../frontend/pages/addProduct.php?supplier_active=1");
+
+    if($link == 1){
+        header("Location: ../frontend/pages/addProduct.php?supplier_active=1");
+    } else if($link == 2){
+        $product_ID = $_POST["product_ID"];
+        header("Location: ../frontend/pages/singleProduct.php?product_ID=" . $product_ID . "&supplier_active=1");
+    }
 }
 if(isset($_POST["delete_path"])){
     $ID = $_POST["delete_ID"];
@@ -33,5 +52,11 @@ if(isset($_POST["delete_path"])){
 
     mysqli_query($conn, $sql);
     mysqli_close($conn);
-    header("Location: ../frontend/pages/addProduct.php?supplier_active=1");
+
+    if($link == 1){
+        header("Location: ../frontend/pages/addProduct.php?supplier_active=1");
+    } else if($link == 2){
+        $product_ID = $_POST["product_ID"];
+        header("Location: ../frontend/pages/singleProduct.php?product_ID=" . $product_ID . "&supplier_active=1");
+    }
 }

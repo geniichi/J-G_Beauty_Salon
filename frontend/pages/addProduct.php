@@ -15,14 +15,18 @@ include("../components/header.php");
         <form action="../../backend/add_product.php" method="POST" enctype="multipart/form-data" id="addForm_main">
             <div>
                 <div id="img-uploader">
+                    <h3 id="img-uploader-text">Place Image Here</h3>
                     <input type="file" id="file-input" accept="image/*" name="image" required onchange="previewImage(event)">
                     <label for="file-input">
                         <span class="material-symbols-outlined">add</span>
                     </label>
                 </div>
-                <div id="img-showcase-container">
-                    <h1>Image Preview</h1>
-                    <img src="" alt="image preview" id="img-showcase">
+                <div id="img-showcase-container" onclick="removeImage()">
+                    <h4>Image Preview</h4>
+                    <div>
+                        <img src="" alt="image preview" id="img-showcase">
+                    </div>
+                    <p>Remove</p>
                 </div>
             </div>
 
@@ -75,9 +79,11 @@ include("../components/header.php");
                         Add Product Class
                     </p>
                 </div>
-                <!-- Quantity -->
-                <input type="number" name="quantity" placeholder="Input quantity" required>
-                <input type="number" name="price" placeholder="Input price" required>
+                <!-- Others -->
+                <div>
+                    <input type="number" name="quantity" placeholder="Input quantity" required>
+                    <input type="number" name="price" placeholder="Input price" required>
+                </div>
                 <textarea name="description" placeholder="Input description" required></textarea>
                 <input type="submit" name="Add" value="Add">
             </div>

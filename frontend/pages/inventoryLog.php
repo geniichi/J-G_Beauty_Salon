@@ -5,9 +5,10 @@
 <?php
     include("../../backend/connect.php");
 
-    $ID = $_GET['product_ID'];
+    $product_ID = $_GET['product_ID'];
+    $staff_ID = $_COOKIE['staff_ID'];
 
-    $sql = "SELECT * FROM inventoryItemLog AS l, staff AS s WHERE l.staff_ID = s.Staff_ID AND l.product_ID = '$ID'";
+    $sql = "SELECT * FROM inventoryItemLog AS l, staff AS s WHERE l.staff_ID = s.Staff_ID AND l.product_ID = '$product_ID' AND l.staff_ID = '$staff_ID'";
 
     // echo $sql;
 
