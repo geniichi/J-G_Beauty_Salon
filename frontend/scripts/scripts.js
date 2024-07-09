@@ -79,7 +79,7 @@ function previewImage(event) {
 
 function changeImage(event) {
     const file = event.target.files[0];
-    if (file) {
+    if(file) {
         const reader = new FileReader();
         reader.onload = function(e) {
             const imgPreview = document.getElementById('img-showcase');
@@ -103,4 +103,16 @@ function removeImage(){
     img_upload_text.style.display = "inline";
 
     imgPreview.src = '';
+}
+
+function increase_quantity(){
+    const $quantity_input = document.getElementById('quantity_amount');
+    $quantity_input.value++;
+}
+
+function decrease_quantity(){
+    const $quantity_input = document.getElementById('quantity_amount');
+    if($quantity_input.value > 1){
+        $quantity_input.value--;
+    }
 }

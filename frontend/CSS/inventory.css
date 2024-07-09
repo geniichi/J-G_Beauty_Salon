@@ -1,12 +1,10 @@
+main > div{
+    padding: 3.5rem 6rem;
+}
 select, input, option, button {
     color: #000000;
 }
-main > div{
-    margin: 6.5rem 2rem 2.5rem 11.5rem;
-}
-main > div > div{
-    /* min-height: 73vh; */
-}
+
 main > div > div > div:nth-child(1){
     padding: 1rem;
     width: 100%;

@@ -100,6 +100,19 @@ main {
     display: flex;
 }
 
+main > div{
+    margin: 4rem 1rem auto 5rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 86rem;
+}
+main > div > div{
+    width: 100%;
+    height: 100%;
+}
+
 a {
     text-decoration: none;
 }

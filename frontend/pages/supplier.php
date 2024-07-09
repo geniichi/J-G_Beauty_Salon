@@ -7,7 +7,6 @@
     echo (isset($_GET["supplier_active"])) ? '<div id="supplier_form_active">' : '<div id="supplier_form_hidden">';
 ?>
     <form action="../../backend/supplier.php" method="post" id="supplier_section">
-
         <div>
             <h1>Suppliers</h1>
             <div>
@@ -86,5 +85,4 @@
             </span>
         </div>
     </form>
-
 </div>

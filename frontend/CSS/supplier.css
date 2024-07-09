@@ -1,5 +1,6 @@
 #supplier_form_hidden{
     display: none;
+    position: absolute;
 }
 #supplier_form_active{
     display: block;

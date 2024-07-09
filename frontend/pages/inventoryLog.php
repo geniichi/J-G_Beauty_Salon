@@ -15,7 +15,10 @@
     $result = mysqli_query($conn, $sql);
 
     if(mysqli_num_rows($result) != 0){
-        echo '<div id="inventoryLog">';
+        echo '
+            <div id="inventoryLog">
+            <h2>Inventory Log</h2>
+        ';
         while ($row = mysqli_fetch_assoc($result)) {
             $staff_fname = $row["first_name"];
             $staff_lname = $row["last_name"];

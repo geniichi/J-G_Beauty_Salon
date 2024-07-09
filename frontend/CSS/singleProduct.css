@@ -4,8 +4,8 @@ main > div {
     display: flex;
     height: 90.8vh;
     position: relative;
+    flex-direction: row;
 }
-
 #ProductForm_main {
     display: flex;
     padding: 2rem;
@@ -132,11 +132,13 @@ main > div {
 #empty-image{
     color: #000000;
 }
+main > div > div:nth-of-type(4){
+    width: 50%;
 
-main > div > div{
+}
+main > div > div:nth-of-type(3){
     background-color: #6c615f;
     width: 50%;
-    position: relative;
 }
 #Quantity_form{
     display: flex;
@@ -160,10 +162,16 @@ main > div > div{
 #Quantity_form > div:nth-of-type(1) > div:nth-child(1) input{
     border: none;
     border-radius: 0.3rem;
-    padding: 1rem 0.6rem;
+    padding: 0.8rem 0.6rem;
     height: 0.8rem;
     margin-left: 1rem;
     width: 4rem;
+    text-align: center;
+}
+#Quantity_form > div:nth-of-type(1) > div:nth-child(1) input::-webkit-outer-spin-button,
+#Quantity_form > div:nth-of-type(1) > div:nth-child(1) input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
 }
 #Quantity_form > div:nth-of-type(1) > div:nth-child(2){
     display: flex;
@@ -174,11 +182,16 @@ main > div > div{
     align-items: center;
     border: none;
     border-radius: 0.3rem;
-    border: 2px solid var(--light-biege);
+    border: 3px solid var(--light-biege);
     background-color: transparent;
     color: #ffffff;
-    height: 2.8rem;
+    height: 2.4rem;
     padding:0rem 1rem;
+    cursor: pointer;
+    transition: background-color 0.4s ease-in-out;
+}
+#Quantity_form > div:nth-of-type(1) > div:nth-child(2) > div:hover{
+    background-color: var(--dark-brown);
 }
 #Quantity_form > div:nth-of-type(1) > div:nth-child(2) > div span{
     margin-right: 0.5rem;
@@ -187,7 +200,7 @@ main > div > div{
     margin-right: 1rem;
 }
 #Quantity_form textarea{
-    height: 5rem;
+    height: 5.2rem;
     width: 25rem;
 }
 #Quantity_form > div:nth-of-type(2){
@@ -197,16 +210,41 @@ main > div > div{
 #Quantity_form > div:nth-of-type(2) button{
     border: none;
     border-radius: 0.3rem;
-    border: 2px solid var(--light-biege);
+    border: 2px solid #ffffff;
     background-color: transparent;
     color: #ffffff;
     padding: 0.2rem 0.8rem;
     width: 5rem;
 }
+#Quantity_form > div:nth-of-type(2) button:nth-of-type(1){
+    background-color:#8D0707;
+}
+#Quantity_form > div:nth-of-type(2) button:nth-of-type(2){
+    background-color:#07610C;
+}
+#Quantity_form > div:nth-of-type(2) button:nth-of-type(1):hover{
+    background-color:#b71414;
+}
+#Quantity_form > div:nth-of-type(2) button:nth-of-type(2):hover{
+    background-color:#14931a;
+}
+#Quantity_form > div:nth-of-type(2) button:nth-of-type(1):active{
+    transform: scale(0.8);
+}
+#Quantity_form > div:nth-of-type(2) button:nth-of-type(2):active{
+    transform: scale(0.8);
+}
 #log-container{
     height: 61.6%;;
-    overflow-y: scroll;
+    overflow-y: auto;
 }
-#log-container > div{
-    height: 100rem;
+main > div > div:nth-of-type(1){
+    z-index: 99;
+}
+main > div > div:nth-of-type(2){
+    z-index: 99;
+}
+
+#item-showcase{
+    width: 50%;
 }
