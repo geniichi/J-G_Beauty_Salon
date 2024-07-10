@@ -140,35 +140,62 @@
                         </div>
                     </form>
                 ';
-            } else {}
+            } else {
+                echo'
+                    <div id="item-showcase">
+                        <div>
+                            <div>
+                                <div>
+                                    <p>ID: ';
+                                    echo $product_ID;
+                                    echo '</p>
+                                    <h1>';
+                                    echo $product_name;
+                                    echo '</h1>
+                                </div>
+
+                                <div>
+                                    <p><span>Class: </span>';
+                                    include("../../backend/connect.php");
+                                    $sql = "SELECT * FROM productclass WHERE class_ID = $class";
+                                    $result = mysqli_query($conn, $sql);
+                                    $row = mysqli_fetch_assoc($result);
+                                    echo $row["name"];
+                                    echo '</p>
+                                    <p><span>Supplier: </span>';
+                                    include("../../backend/connect.php");
+                                    $sql = "SELECT * FROM supplier WHERE supplier_ID = $supplier";
+                                    $result = mysqli_query($conn, $sql);
+                                    $row = mysqli_fetch_assoc($result);
+                                    echo $row["name"];
+                                    echo '</p>
+                                    <p><span>Quantity: </span>';
+                                    echo $quantity;
+                                    echo '</p>
+                                    <p><span>Price: </span>&#8369; ';
+                                    echo $price;
+                                    echo '</p>
+                                </div>
+                            </div>
+                            <div>
+                                <img src="';
+                                echo "../images/" . $image_path;
+                                echo '" alt="';
+                                echo $product_name;
+                                echo'">
+                            </div>
+                        </div>
+                        <div>
+                            <p>';
+                            echo $description;
+                        echo '</div>
+                    </div>
+                ';
+            }
 
         ?>
 
-        <div id="item-showcase">
-            <div>
-                <div>
-                    <div>
-                        <p>ID: 1</p>
-                        <h1>Name</h1>
-                    </div>
 
-                    <div>
-                        <p>Class: </p>
-                        <p>Supplier: </p>
-                        <p>Quantity: </p>
-                        <p>Price: </p>
-                    </div>
-                </div>
-                <div>
-                    <img src="" alt="">
-                </div>
-            </div>
-
-
-            <div>
-                description
-            </div>
-        </div>
 
         <div>
             <form action="../../backend/change_quantity.php" method="POST" id="Quantity_form">
@@ -206,7 +233,6 @@
 </main>
 
 <?php
-
 include("../components/footer.php");
 
 ?>

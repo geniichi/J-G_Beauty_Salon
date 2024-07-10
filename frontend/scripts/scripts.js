@@ -116,3 +116,19 @@ function decrease_quantity(){
         $quantity_input.value--;
     }
 }
+
+function toggleOrderDropdown(id) {
+    const order_dropdown = document.getElementById('order_row' + id);
+
+    if (order_dropdown.classList.contains('show')) {
+        order_dropdown.classList.remove('show');
+        setTimeout(() => {
+            order_dropdown.style.display = 'none';
+        }, 300);
+    } else {
+        order_dropdown.style.display = 'block';
+        setTimeout(() => {
+            order_dropdown.classList.add('show');
+        }, 0);
+    }
+}

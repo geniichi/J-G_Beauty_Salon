@@ -7,7 +7,7 @@ main > div {
 }
 #addForm_main {
     display: flex;
-    padding: 2rem;
+    width: 100%;
 }
 #addForm_main > div{
     display: flex;

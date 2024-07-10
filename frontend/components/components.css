@@ -101,7 +101,7 @@ main {
 }
 
 main > div{
-    margin: 4rem 1rem auto 5rem;
+    margin: 4rem 0rem auto 5rem;
     display: flex;
     flex-direction: column;
     justify-content: center;

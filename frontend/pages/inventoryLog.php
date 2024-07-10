@@ -32,9 +32,9 @@
                     <div>
                         <p>' . $staff_fname . ' ' . $staff_lname . '</p>
                         <p>' . $date . '</p>';
-                    if($status = 'Deducted'){
+                    if($status == 'Deducted'){
                         echo '<p>-' . $amount . '</p>';
-                    } else if($status = 'Increased'){
+                    } else if($status == 'Increased'){
                         echo '<p>+' . $amount . '</p>';
                     }
             echo '

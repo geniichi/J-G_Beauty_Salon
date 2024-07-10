@@ -1,4 +1,133 @@
-main > div {
-    padding: 5.5rem 1.5rem 1.5rem 5.5rem;
+main > div{
+    padding: 3.5rem 6rem;
+    margin-right: 1rem;
+}
+select, input, option, button {
+    color: #000000;
+}
+
+main > div > div > div:nth-child(1){
+    padding: 1rem;
     width: 100%;
+    background-color: #ac9c99;
+    border-radius: 0.7rem;
+    box-shadow: 0 0 5px 5px rgba(0, 0, 0, 0.2);
+    display: flex;
+    margin-bottom: 2rem;
+    position: sticky;
+    top: 5rem;
+}
+main > div > div > div:nth-child(2){
+    padding: 1rem;
+    width: 100%;
+    background-color: #ac9c99;
+    border-radius: 0.7rem;
+    box-shadow: 0 0 5px 5px rgba(0, 0, 0, 0.2);
+    display: flex;
+    flex-direction: column;
+}
+main > div > div > div a{
+    margin-left: 2rem;
+}
+main > div > div > div a button{
+    border: 2px solid #ffffff;
+    display: flex;
+    align-items: center;
+    padding: 0.5rem;
+    border-radius: 0.3rem;
+    background-color: var(--dirty-biege);
+    color: #ffffff;
+    width: 8rem;
+}
+#empty_productRows{
+    text-align: center;
+}
+#search-form{
+    displaY: flex;
+    width: 100%;
+    justify-content: space-between;
+}
+#search-form .material-symbols-outlined{
+    cursor:auto;
+}
+#search-form > div:nth-child(1) {
+    display: flex;
+    align-items: center;
+    border-radius: 0.3rem;
+    overflow-y: hidden;
+    background-color: #FFFFFF;
+    padding: 0.1rem 0.3rem;
+}
+#search-form > div:nth-child(1) input{
+    border: none;
+    padding: 0.5rem;
+    width: 20rem;
+}
+#search-form > div:nth-child(1) span{
+    display: flex;
+    align-items: center;
+    background-color: #FFFFFF;
+    color: #636060;
+    height: 100%;
+}
+#search-form > div:nth-child(1){
+    display: flex;
+}
+#search-form > div:nth-child(2){
+    display: flex;
+    justify-content: space-between;
+    width: 31rem;
+}
+#search-form > div:nth-child(2) input{
+    border: none;
+    border-radius: 0.3rem;
+    padding: 0rem 1rem;
+    background-color: var(--dark-brown);
+    color: #ffffff;
+    transition: background-color 0.4s ease-in-out, transform 0.4s ease-in-out;
+}
+#search-form > div:nth-child(2) input:hover{
+    background-color: #806f7f;
+    transform: scale(1.05);
+}
+#search-form > div:nth-child(2) input:active{
+    transform: scale(0.7);
+}
+#search-form > div:nth-child(2) select{
+    border: none;
+    border-radius: 0.3rem;
+    padding: 0rem 0.5rem;
+}
+.order_row{
+    display: flex;
+    justify-content: space-between;
+    cursor: pointer;
+    border-bottom: 3px solid #ffffff86;
+    margin-bottom: 0.5rem;
+    padding: 1rem;
+    cursor: pointer;
+}
+.order_row p, #order_row_top p{
+    width: 10rem;
+}
+#order_row_top{
+    color: #686565;
+    display: flex;
+    justify-content: space-between;
+    cursor: pointer;
+    border-bottom: 3px solid #ffffff86;
+    margin-bottom: 0.5rem;
+    padding: 1rem;
+}
+.order_row_dropdown {
+    display: none;
+    height: 0;
+    overflow: hidden;
+    opacity: 0;
+    transition: height 0.3s ease, opacity 0.3s ease;
+}
+
+.order_row_dropdown.show {
+    height: 25rem;
+    opacity: 1;
 }
