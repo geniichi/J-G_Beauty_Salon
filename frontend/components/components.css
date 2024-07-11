@@ -21,13 +21,13 @@
     --light-biege: #a2908c;
 }
 
-*{
+* {
     margin: 0;
     padding: 0;
     font-family: "Poppins", sans-serif;
 }
 
-body{
+body {
     background-color: var(--dirty-biege);
     color: #ffffff;
 }
@@ -49,37 +49,37 @@ header {
     z-index: 2;
 }
 
-header > #logo-img-container{
+header > #logo-img-container {
     width: 3rem;
     height: 3rem;
 }
 
-header > #logo-img-container > img{
+header > #logo-img-container > img {
     height: 100%;
     width: 100%;
 }
 
-header > div:nth-child(2){
+header > div:nth-child(2) {
     display: flex;
     align-items: center;
     justify-content: center;
 }
 
-.material-symbols-outlined{
+.material-symbols-outlined {
     cursor: pointer;
 }
 
-header > div:nth-child(2) > .material-symbols-outlined{
+header > div:nth-child(2) > .material-symbols-outlined {
     width: 2rem;
     height: 2rem;
     margin-left: 1rem;
     font-size: 2rem;
 }
 
-#side-navbar{
+#side-navbar {
     width: 5rem;
     background-color: var(--pale-green);
-    height:90.7vh;
+    height: 90.7vh;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -88,10 +88,11 @@ header > div:nth-child(2) > .material-symbols-outlined{
     z-index: 3;
 }
 
-.side-navabr-icons{
+.side-navabr-icons {
     margin-top: 2rem;
 }
-#side-navbar > div > a > .material-symbols-outlined{
+
+#side-navbar > div > a > .material-symbols-outlined {
     color: rgb(184, 159, 97);
     font-size: 2rem;
 }
@@ -129,11 +130,37 @@ a {
     width: 5rem;
     padding: 0.5rem 1rem;
 }
-#header-account-dropdown ul li a{
+
+#header-account-dropdown ul li a {
     color: #000000;
 }
 
 #header-account-dropdown.active {
     opacity: 1;
     max-height: 200px;
+}
+
+.inventory-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+.inventory-table th, .inventory-table td {
+    border: 1px solid #ddd;
+    padding: 8px;
+}
+
+.inventory-table th {
+    background-color: var(--dark-brown);
+    color: white;
+    text-align: left;
+}
+
+.inventory-table tr:nth-child(even) {
+    background-color: var(--light-biege);
+}
+
+.inventory-table tr:hover {
+    background-color: var(--pale-pink);
 }
