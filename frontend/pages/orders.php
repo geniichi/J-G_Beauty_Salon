@@ -134,7 +134,6 @@ include("../../backend/connect.php");
                     <p>Delivery Date</p>
                     <p>Total Price</p>
                     <div></div>
-                    <div></div>
                 </div>
                 <?php
                     $result = mysqli_query($conn, $sql);
@@ -173,8 +172,7 @@ include("../../backend/connect.php");
                                         <p>' . $order_date . '</p>
                                         <p>' . $delivery_date . '</p>
                                         <p>' . $price . '</p>
-                                        <a href="./updateOrder.php?cart_ID=' . $cart_ID . '">Update</a>
-                                        <a href="">Delete</a>
+                                        <a href="./changeOrder.php?cart_ID=' . $cart_ID . '">Update</a>
                                     </div>
                                     <div class="order_row_dropdown" id="order_row' . $cart_ID . '">';
 

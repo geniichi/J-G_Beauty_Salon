@@ -1,0 +1,62 @@
+#deleteOrder_warning{
+    display: none;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    top: 0rem;
+    left: 0rem;
+    height: 99.7%;
+    width: 99.7%;
+    z-index: 99;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 16px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+}
+#deleteOrder_warning > form{
+    background-color: #666160;
+    border-radius: 0.3rem;
+    height: 13rem;
+    width: 28rem;
+    padding:  6rem 8rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+}
+#deleteOrder_warning > form h2{
+    text-align: center;
+}
+
+#deleteOrder_warning > form > div{
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+}
+
+#deleteOrder_warning > form > div p, #deleteOrder_warning > form > div button{
+    font-size: 1.1rem;
+    border-radius: 0.3rem;
+    background-color: #494545;
+    color: #ffffff;
+    padding: 0.5rem 1rem;
+    width: 4rem;
+    text-align: center;
+    transition: background-color 0.3s ease-in-out, transform 0.3s ease-in-out;
+    cursor: pointer;
+    border: none;
+}
+#deleteOrder_warning > form > div button{
+    width: 6rem;
+}
+#deleteOrder_warning > form > div p:hover{
+    background-color: #07610C;
+}
+#deleteOrder_warning > form > div button:hover{
+    background-color: #891C10;
+}
+#deleteOrder_warning > form > div p:active, #deleteOrder_warning > form > div button:active{
+    transform: scale(0.8);
+}

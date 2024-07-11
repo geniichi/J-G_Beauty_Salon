@@ -27,7 +27,7 @@ include("../../backend/connect.php");
 
                 <h3>Payment</h3>
                 <div>
-                    <select name="payment_method" required>
+                    <select name="payment_method">
                         <option value="" selected disabled>Payment Method</option>
                         <option value="Credit Card">Credit Card</option>
                         <option value="Debit Card">Debit Card</option>
@@ -103,6 +103,6 @@ include("../../backend/connect.php");
 
 <?php
 
-include("../components/footer.php");
+include("Location: ../components/footer.php");
 
 ?>

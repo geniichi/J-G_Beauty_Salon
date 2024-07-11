@@ -168,3 +168,54 @@ function clearSelections() {
         checkbox.checked = false;
     });
 }
+
+document.addEventListener('DOMContentLoaded', function() {
+    const today = new Date();
+    const yyyy = today.getFullYear();
+    const mm = String(today.getMonth() + 1).padStart(2, '0');
+    const dd = String(today.getDate()).padStart(2, '0');
+
+    const todayStr = `${yyyy}-${mm}-${dd}`;
+
+    const orderDateInput = document.getElementById('order_date');
+    orderDateInput.value = todayStr;
+    orderDateInput.readOnly = true;
+
+    const deliveryDate = new Date();
+    deliveryDate.setDate(today.getDate() + 5);
+    const yyyyDelivery = deliveryDate.getFullYear();
+    const mmDelivery = String(deliveryDate.getMonth() + 1).padStart(2, '0');
+    const ddDelivery = String(deliveryDate.getDate()).padStart(2, '0');
+
+    const deliveryDateStr = `${yyyyDelivery}-${mmDelivery}-${ddDelivery}`;
+
+    const deliveryDateInput = document.getElementById('delivery_date');
+    deliveryDateInput.value = deliveryDateStr;
+});
+
+
+function updateSelectedProducts() {
+    const selectedProducts = document.querySelectorAll('input[name="product[]"]:checked');
+    const selectedIDs = [];
+    selectedProducts.forEach(function(checkbox) {
+        selectedIDs.push(checkbox.value);
+    });
+    document.getElementById("selected_product_ids").value = selectedIDs.join(",");
+}
+
+updateSelectedProducts();
+document.querySelectorAll('input[name="product[]"]').forEach(function(checkbox) {
+    checkbox.addEventListener("change", updateSelectedProducts);
+});
+
+function showWarningDeleteOrder(event, cartId){
+    event.preventDefault();
+    const warning = document.getElementById("deleteOrder_warning");
+    warning.style.display = "flex";
+    const cart = document.getElementById("cart_ID");
+    cart.value = cartId;
+}
+function hideWarningDeleteOrder(){
+    const warning = document.getElementById("deleteOrder_warning");
+    warning.style.display = "none";
+}

@@ -102,7 +102,27 @@ main > div > div > div a button{
     display: flex;
     justify-content: space-between;
     cursor: pointer;
-    border: 1px solid #000000;
+    border-bottom: 3px solid #ffffff86;
+    padding: 1rem;
+    cursor: pointer;
+}
+#inventoryItem_row p, #inventory_row_top p{
+    width: 10rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+#inventoryItem_row p:nth-of-type(1), #inventory_row_top p:nth-of-type(1){
+    width: 4rem;
+}
+#inventory_row_top{
+    color: #686565;
+    display: flex;
+    justify-content: space-between;
+    cursor: pointer;
+    border-bottom: 3px solid #ffffff86;
     margin-bottom: 0.5rem;
     padding: 1rem;
+    cursor:auto;
 }

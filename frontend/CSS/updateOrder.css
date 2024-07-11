@@ -1,0 +1,262 @@
+main > div {
+    margin: 4rem 0rem 0rem 5rem;
+    width: 100%;
+    border: 1px solid #000000;
+    position: relative;
+    height: 90.4vh;
+}
+#addForm_main {
+    display: flex;
+    width: 100%;
+    height: 100%;
+}
+#addForm_main > div{
+    display: flex;
+    flex-direction: column;
+}
+
+/* Second Half */
+#addForm_main > div:nth-child(1){
+    align-items: center;
+    width: 50%;
+    padding-top: 1.5rem;
+}
+#addForm_main > div:nth-child(1) > div{
+    display: flex;
+}
+#addForm_main > div:nth-child(1) input, #addForm_main > div:nth-child(1) textarea{
+    border: none;
+    border-radius: 0.3rem;
+    padding: 1rem;
+    margin-bottom: 1rem;
+    height: 1rem;
+}
+#addForm_main > div:nth-child(1) > div > input{
+    width: 10.8rem;
+}
+#addForm_main > div:nth-child(1) > div > input:nth-of-type(1){
+    margin-right: 1.5rem;
+}
+#addForm_main > div:nth-child(1) > div > div{
+    display: flex;
+    flex-direction: column;
+    width: 12.8rem;
+}
+#addForm_main > div:nth-child(1) > div > div:nth-of-type(1){
+    margin-right: 1.5rem;
+}
+#addForm_main > div:nth-child(1) > div:nth-of-type(2){
+    display: flex;
+    flex-direction: column;
+    width: 27rem;
+}
+#addForm_main > div:nth-child(1) > div:nth-of-type(2) input{
+    width: 25rem;
+}
+#addForm_main > div:nth-child(1) > div:nth-of-type(2) textarea {
+    height: 2.5rem;
+    resize: none;
+}
+#addForm_main > div:nth-child(1) > div:nth-of-type(3){
+    width: 30rem;
+}
+#addForm_main > div:nth-child(1) > div:nth-of-type(3) > select{
+    border: none;
+    border-radius: 0.3rem;
+    padding: 1rem;
+    margin: auto auto 1rem 1.4rem;
+    width: 13rem;
+}
+#addForm_main > div:nth-child(1) > div:nth-of-type(3) > input{
+    margin-left: 1rem;
+}
+#addForm_main > div:nth-child(1) > div:nth-of-type(5) > input:nth-of-type(1){
+    margin-right: 1.5rem;
+}
+#addForm_main > div:nth-child(1) > div:nth-of-type(5){
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 0.5rem;
+}
+#addForm_main > div:nth-child(1) > div:nth-of-type(5) p{
+    margin-right: 2rem;
+}
+#addForm_main > div:nth-child(1) > div:nth-of-type(5) > input{
+    margin: 0;
+    text-align: center;
+}
+#addForm_main > div:nth-child(1) > div:nth-of-type(5) > button{
+    height: 100%;
+    border: none;
+    border-radius: 0.3rem;
+    margin-left: 1rem;
+    padding: 0.2rem 1rem;
+    border: 3px solid #AC9C99;
+    background-color: transparent;
+    color: #ffffff;
+    transition: background-color 0.3s ease-in-out, border 0.3s ease-in-out, color 0.3s ease-in-out, transform 0.3s ease-in-out;
+}
+#addForm_main > div:nth-child(1) > div:nth-of-type(5) > button:hover{
+    background-color: #d6c6c4;
+    border: 3px solid #d6c6c4;
+    color: #000000;
+}
+#addForm_main > div:nth-child(1) > div:nth-of-type(5) > button:active{
+    background-color: #d6c6c4;
+    border: 3px solid #d6c6c4;
+    color: #000000;
+    transform: scale(0.8);
+}
+#addForm_main > div:nth-child(1) > div:nth-of-type(5) > input::-webkit-outer-spin-button,
+#addForm_main > div:nth-child(1) > div:nth-of-type(5) > input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+#addForm_main > div:nth-child(1) input[type="submit"]{
+    width: 6rem;
+    margin: 1rem auto 0rem auto;
+    border-radius: 0.3rem;
+    height: 2rem;
+    border: none;
+    padding: 0;
+    height: 2.5rem;
+    background-color: #07610c;
+    color: #ffffff;
+    transition: background-color 0.5s ease-in-out, transform 0.5s ease-in-out;
+}
+#addForm_main > div:nth-child(1) input[type="submit"]:hover{
+    background-color: #0B8411;
+    transform: scale(1.1);
+}
+#addForm_main > div:nth-child(1) input[type="submit"]:nth-of-type(2){
+    background-color: #891c10;
+}
+#addForm_main > div:nth-child(1) input[type="submit"]:nth-of-type(2):hover{
+    background-color: #b73021;
+}
+#addForm_main > div:nth-child(1) h3{
+    margin: 0.3rem auto 1rem 10rem;
+}
+#product-search-form{
+    width: 50%;
+    background-color: #666160;
+    overflow-y: auto;
+
+}
+
+#product-search-form > div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+#product-search-form > div > div:nth-child(1){
+    padding: 1rem;
+    width: 90%;
+    background-color: #ac9c99;
+    border-radius: 0.7rem;
+    box-shadow: 0 0 5px 5px rgba(0, 0, 0, 0.2);
+    display: flex;
+    margin-bottom: 5rem;
+    position: sticky;
+    top: 2rem;
+}
+#product-search-form > div > div:nth-child(1){
+    margin-top: 1rem;
+    padding: 1rem;
+    width: 90%;
+    background-color: #ac9c99;
+    border-radius: 0.7rem;
+    box-shadow: 0 0 5px 5px rgba(0, 0, 0, 0.2);
+    display: flex;
+    flex-direction: column;
+}
+#product-search-form > div > div a{
+    margin-left: 2rem;
+}
+#product-search-form > div > div a button{
+    border: 2px solid #ffffff;
+    display: flex;
+    align-items: center;
+    padding: 0.5rem;
+    border-radius: 0.3rem;
+    background-color: var(--dirty-biege);
+    color: #ffffff;
+    width: 8rem;
+}
+#empty_productRows{
+    text-align: center;
+}
+#search-form{
+    displaY: flex;
+    width: 100%;
+    justify-content: space-between;
+}
+#search-form .material-symbols-outlined{
+    cursor:auto;
+}
+#search-form > div:nth-child(1) {
+    display: flex;
+    align-items: center;
+    border-radius: 0.3rem;
+    overflow-y: hidden;
+    background-color: #FFFFFF;
+    padding: 0.1rem 0.3rem;
+}
+#search-form > div:nth-child(1) input{
+    border: none;
+    padding: 0.5rem;
+    width: 20rem;
+}
+#search-form > div:nth-child(1) span{
+    display: flex;
+    align-items: center;
+    background-color: #FFFFFF;
+    color: #636060;
+    height: 100%;
+}
+#search-form > div:nth-child(1){
+    display: flex;
+}
+#search-form > div:nth-child(2){
+    display: flex;
+    justify-content: space-between;
+    width: 41rem;
+}
+#search-form > div:nth-child(2) input{
+    border: none;
+    border-radius: 0.3rem;
+    padding: 0rem 1rem;
+    background-color: var(--dark-brown);
+    color: #ffffff;
+    transition: background-color 0.4s ease-in-out, transform 0.4s ease-in-out;
+}
+#search-form > div:nth-child(2) input:hover{
+    background-color: #806f7f;
+    transform: scale(1.05);
+}
+#search-form > div:nth-child(2) input:active{
+    transform: scale(0.7);
+}
+#search-form > div:nth-child(2) select{
+    border: none;
+    border-radius: 0.3rem;
+    padding: 0rem 0.5rem;
+}
+.inventoryItem_row{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    cursor: pointer;
+    border-bottom: 3px solid #bfb2b2;
+    margin-bottom: 0.5rem;
+    padding: 1rem;
+}
+.inventoryItem_row p{
+    width: 6rem;
+    text-align: center;
+}
+.inventoryItem_row input{
+    width: 1.5rem;
+    height: 1.5rem;
+}

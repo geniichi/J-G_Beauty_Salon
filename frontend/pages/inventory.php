@@ -128,6 +128,13 @@
 
             ?>
             <div>
+                <div id="inventory_row_top">
+                    <p>ID#</p>
+                    <p>Product Name</p>
+                    <p>Supplier</p>
+                    <p>Product Class</p>
+                    <p>Quantity</p>
+                </div>
                 <?php
                     $result = mysqli_query($conn, $sql);
                     if($result){

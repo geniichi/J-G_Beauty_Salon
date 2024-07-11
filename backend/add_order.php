@@ -15,7 +15,11 @@ $result = mysqli_query($conn, $sql);
 $row = mysqli_fetch_assoc($result);
 $customer_ID = $row["customer_ID"];
 
-$payment_method = $_POST["payment_method"];
+if(isset($_POST["payment_method"])){
+    $payment_method = $_POST["payment_method"];
+} else if(isset($_POST["custom_payment"])){
+    $payment_method = $_POST["custom_payment"];
+}
 $order_date = $_POST["order_date"];
 $delivery_date = $_POST["delivery_date"];
 $total_price = $_POST["total_price"];
@@ -41,4 +45,4 @@ if (isset($_POST['product']) && is_array($_POST['product'])) {
     echo "No products selected.";
 }
 
-header("../frontend/pages/orders.php");
+header("Location: ../frontend/pages/orders.php");
