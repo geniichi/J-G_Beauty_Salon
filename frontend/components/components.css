@@ -164,3 +164,52 @@ a {
 .inventory-table tr:hover {
     background-color: var(--pale-pink);
 }
+
+button, input[type="submit"] {
+    background-color: var(--dark-brown);
+    color: #ffffff;
+    border: 1px solid var(--dark-brown);
+    padding: 5px 10px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+button:hover, input[type="submit"]:hover {
+    background-color: var(--pale-pink);
+}
+
+input[type="search"], select {
+    background-color: #ffffff;
+    color: #000000;
+    border: 1px solid var(--dark-brown);
+    padding: 5px;
+}
+
+form div {
+    margin-bottom: 10px;
+}
+
+.button {
+    background-color: var(--dark-brown);
+    color: #ffffff;
+    border: 1px solid var(--dark-brown);
+    padding: 5px 10px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.button:hover {
+    background-color: var(--pale-pink);
+}
+
+.input {
+    background-color: #ffffff;
+    color: #000000;
+    border: 1px solid #ccc;
+    padding: 8px;
+    font-size: 16px;
+}
+

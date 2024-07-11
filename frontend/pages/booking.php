@@ -3,12 +3,17 @@ include("../components/header.php");
 include("../../backend/connect.php");
 ?>
 
+<style>
+    <?php include("../CSS/inventory.css")?>
+</style>
+
 <main>
     <?php include("../components/side_navbar.php"); ?>
     <div>
         <h2>Appointments</h2>
-        <a href="addBooking.php">Add Appointment</a>
+        <a href="addBooking.php" class="button">Add Appointment</a>
         <br><br>
+<<<<<<< Updated upstream
         <table id="appointmentsTable">
             <tr>
                 <th>Appointment ID</th>
@@ -21,27 +26,45 @@ include("../../backend/connect.php");
                     FROM appointments AS a
                     JOIN customer AS c ON a.customer_ID = c.customer_ID";
             $result = $conn->query($sql);
+=======
+        <table class="inventory-table">
+            <thead>
+                <tr>
+                    <th>Appointment ID</th>
+                    <th>Customer Name</th>
+                    <th>Date</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                <?php
+                $sql = "SELECT a.appointment_ID, a.date, c.first_name, c.last_name 
+                        FROM appointments AS a 
+                        JOIN customer AS c ON a.customer_ID = c.customer_ID";
+                $result = $conn->query($sql);
+>>>>>>> Stashed changes
 
-            if ($result->num_rows > 0) {
-                while ($row = $result->fetch_assoc()) {
-                    echo "<tr>";
-                    echo "<td>" . $row['appointment_ID'] . "</td>";
-                    echo "<td>" . $row['first_name'] . " " . $row['last_name'] . "</td>";
-                    echo "<td>" . $row['date'] . "</td>";
-                    echo '<td>
-                            <form method="POST" action="../../backend/deleteBooking.php" onsubmit="return confirmDelete();">
-                                <input type="hidden" name="appointment_ID" value="' . $row['appointment_ID'] . '">
-                                <button type="submit">Delete</button>
-                            </form>
-                        </td>';
-                    echo "</tr>";
+                if ($result->num_rows > 0) {
+                    while ($row = $result->fetch_assoc()) {
+                        echo "<tr>";
+                        echo "<td>" . $row['appointment_ID'] . "</td>";
+                        echo "<td>" . $row['first_name'] . " " . $row['last_name'] . "</td>";
+                        echo "<td>" . $row['date'] . "</td>";
+                        echo '<td>
+                                <form method="POST" action="../../backend/deleteBooking.php" onsubmit="return confirmDelete();">
+                                    <input type="hidden" name="appointment_ID" value="' . $row['appointment_ID'] . '">
+                                    <button type="submit">Delete</button>
+                                </form>
+                            </td>';
+                        echo "</tr>";
+                    }
+                } else {
+                    echo "<tr><td colspan='4'>No appointments found</td></tr>";
                 }
-            } else {
-                echo "<tr><td colspan='4'>No appointments found</td></tr>";
-            }
 
-            $conn->close();
-            ?>
+                $conn->close();
+                ?>
+            </tbody>
         </table>
     </div>
 </main>
