@@ -130,7 +130,7 @@
             <div>
                 <?php
                     $result = mysqli_query($conn, $sql);
-                    if ($result) {
+                    if($result){
                         if($numRows = mysqli_num_rows($result) == 0){
                             echo'
                                 <div id="empty_productRows">

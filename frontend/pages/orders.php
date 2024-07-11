@@ -43,18 +43,23 @@ include("../../backend/connect.php");
 
                 </form>
                 <?php
-                    if($_COOKIE["username"] == 'admin'){
-                        echo'
-                            <a href="../pages/addOrder.php">
-                                <button>
-                                    <span class="material-symbols-outlined">
-                                        add
-                                    </span>
-                                    Add Order
-                                </button>
-                            </a>
-                        ';
+                    if(isset($_COOKIE["username"])){
+                        if($_COOKIE["username"] == 'admin'){
+                            echo'
+                                <a href="../pages/addOrder.php">
+                                    <button>
+                                        <span class="material-symbols-outlined">
+                                            add
+                                        </span>
+                                        Add Order
+                                    </button>
+                                </a>
+                            ';
+                        }
+                    } else {
+                        header("Location: ./login.php");
                     }
+
                 ?>
             </div>
 
@@ -77,10 +82,7 @@ include("../../backend/connect.php");
                         } else {
                             $conditions[] = "customer_ID = 'ibgewg151'";
                         }
-
-
                     }
-
 
                     // Payment Option
                     if(isset($_GET["payment_option"])){
@@ -131,6 +133,8 @@ include("../../backend/connect.php");
                     <p>Order Date</p>
                     <p>Delivery Date</p>
                     <p>Total Price</p>
+                    <div></div>
+                    <div></div>
                 </div>
                 <?php
                     $result = mysqli_query($conn, $sql);
@@ -155,25 +159,44 @@ include("../../backend/connect.php");
                                 $customer_name = $customerRow["last_name"] . ", " . $customerRow["first_name"];
                                 $stmt->close();
 
-                                $ID = $row["cart_ID"];
+                                $cart_ID = $row["cart_ID"];
                                 $payment_opt = $row["payment_option"];
                                 $order_date = $row["order_date"];
                                 $delivery_date = $row["delivery_date"];
                                 $price = $row["price"];
 
-                                $staff_ID = $_COOKIE["username"];
-
                                 echo '
-                                    <div class="order_row" onclick="toggleOrderDropdown(' . $ID . ')">
-                                        <p>' . $ID . '</p>
+                                    <div class="order_row" onclick="toggleOrderDropdown(' . $cart_ID . ')">
+                                        <p>' . $cart_ID . '</p>
                                         <p>' . $customer_name . '</p>
                                         <p>' . $payment_opt . '</p>
                                         <p>' . $order_date . '</p>
                                         <p>' . $delivery_date . '</p>
                                         <p>' . $price . '</p>
+                                        <a href="./updateOrder.php?cart_ID=' . $cart_ID . '">Update</a>
+                                        <a href="">Delete</a>
                                     </div>
-                                    <div class="order_row_dropdown" id="order_row' . $ID . '">';
-                                        
+                                    <div class="order_row_dropdown" id="order_row' . $cart_ID . '">';
+
+                                        $orderQuery = "SELECT product_ID FROM `order` WHERE cart_ID = $cart_ID";
+                                        $orderQuery_result = mysqli_query($conn, $orderQuery);
+                                        while ($order_row = mysqli_fetch_assoc($orderQuery_result)) {
+                                            $prod_ID = $order_row["product_ID"];
+                                            $productsQuery = "SELECT image_path, product_ID, product_name, price FROM inventoryitem WHERE product_ID = $prod_ID";
+                                            $productsQuery_result = mysqli_query($conn, $productsQuery);
+                                            $product_row = mysqli_fetch_assoc($productsQuery_result);
+                                            echo '
+                                                <div>
+                                                    <div>
+                                                        <img src="../images/' . $product_row["image_path"] . '" alt="' . $product_row["product_name"] . '">
+                                                    </div>
+                                                    <p>' . $product_row["product_ID"] . '</p>
+                                                    <p>' . $product_row["product_name"] . '</p>
+                                                    <p>' . $product_row["price"] . '</p>
+                                                </div>
+                                            ';
+                                        }
+
                                     echo '</div>';
                             }
                         }

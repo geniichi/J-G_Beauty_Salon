@@ -118,17 +118,53 @@ function decrease_quantity(){
 }
 
 function toggleOrderDropdown(id) {
-    const order_dropdown = document.getElementById('order_row' + id);
+    const orderDropdown = document.getElementById('order_row' + id);
 
-    if (order_dropdown.classList.contains('show')) {
-        order_dropdown.classList.remove('show');
-        setTimeout(() => {
-            order_dropdown.style.display = 'none';
-        }, 300);
+    if (orderDropdown.classList.contains('show')) {
+        orderDropdown.style.height = orderDropdown.scrollHeight + 'px';
+        requestAnimationFrame(() => {
+            orderDropdown.style.height = '0';
+            orderDropdown.style.opacity = '0';
+        });
+        orderDropdown.addEventListener('transitionend', function handleTransitionEnd() {
+            orderDropdown.classList.remove('show');
+            orderDropdown.style.display = 'none';
+            orderDropdown.removeEventListener('transitionend', handleTransitionEnd);
+        });
     } else {
-        order_dropdown.style.display = 'block';
-        setTimeout(() => {
-            order_dropdown.classList.add('show');
-        }, 0);
+        orderDropdown.style.display = 'flex';
+        requestAnimationFrame(() => {
+            orderDropdown.classList.add('show');
+            orderDropdown.style.height = orderDropdown.scrollHeight + 'px';
+            orderDropdown.style.opacity = '1';
+        });
+        orderDropdown.addEventListener('transitionend', function handleTransitionEnd() {
+            orderDropdown.style.height = 'auto';
+            orderDropdown.removeEventListener('transitionend', handleTransitionEnd);
+        });
     }
+}
+
+function toggleProductCheckbox(event, id, price) {
+    const checkbox = document.getElementById('product' + id);
+    const total_price_input = document.getElementById('total_price');
+
+    if (!event.target.matches('input[type="checkbox"]')) {
+        checkbox.checked = !checkbox.checked;
+    }
+
+    if (checkbox.checked) {
+        total_price_input.value = parseFloat(total_price_input.value) + parseFloat(price);
+    } else {
+        total_price_input.value = parseFloat(total_price_input.value) - parseFloat(price);
+    }
+}
+
+function clearSelections() {
+    document.getElementById('total_price').value = '0';
+
+    const checkboxes = document.querySelectorAll('input[type="checkbox"]');
+    checkboxes.forEach(checkbox => {
+        checkbox.checked = false;
+    });
 }
