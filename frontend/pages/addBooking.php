@@ -10,21 +10,21 @@ include("../../backend/connect.php");
         <form action="addBooking.php" method="POST">
             <div>
                 <label for="first_name">First Name:</label>
-                <input type="text" id="first_name" name="first_name" required>
+                <input type="text" id="first_name" name="first_name" class="input" required>
             </div>
             <div>
                 <label for="last_name">Last Name:</label>
-                <input type="text" id="last_name" name="last_name" required>
+                <input type="text" id="last_name" name="last_name" class="input" required>
             </div>
             <div>
                 <label for="contact_No">Contact Number:</label>
-                <input type="text" id="contact_No" name="contact_No" required>
+                <input type="text" id="contact_No" name="contact_No" class="input" required>
             </div>
             <div>
                 <label for="date">Date:</label>
-                <input type="datetime-local" id="date" name="date" required>
+                <input type="datetime-local" id="date" name="date" class="input" required>
             </div>
-            <input type="submit" value="Add Appointment" name="submit">
+            <input type="submit" value="Add Appointment" name="submit" class="button">
         </form>
 
         <?php
