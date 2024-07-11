@@ -76,7 +76,7 @@ main > div > div > div a button{
 #search-form > div:nth-child(2){
     display: flex;
     justify-content: space-between;
-    width: 41rem;
+    width: 31rem;
 }
 #search-form > div:nth-child(2) input{
     border: none;
@@ -98,11 +98,36 @@ main > div > div > div a button{
     border-radius: 0.3rem;
     padding: 0rem 0.5rem;
 }
-#inventoryItem_row{
+.order_row{
     display: flex;
     justify-content: space-between;
     cursor: pointer;
-    border: 1px solid #000000;
+    border-bottom: 3px solid #ffffff86;
     margin-bottom: 0.5rem;
     padding: 1rem;
+    cursor: pointer;
+}
+.order_row p, #order_row_top p{
+    width: 10rem;
+}
+#order_row_top{
+    color: #686565;
+    display: flex;
+    justify-content: space-between;
+    cursor: pointer;
+    border-bottom: 3px solid #ffffff86;
+    margin-bottom: 0.5rem;
+    padding: 1rem;
+}
+.order_row_dropdown {
+    display: none;
+    height: 0;
+    overflow: hidden;
+    opacity: 0;
+    transition: height 0.3s ease, opacity 0.3s ease;
+}
+
+.order_row_dropdown.show {
+    height: 25rem;
+    opacity: 1;
 }

@@ -12,14 +12,17 @@
     $row = mysqli_fetch_assoc($result);
 
     if(mysqli_num_rows($result) != 0){
-        if($row['Staff_ID'] == 1){
+        $staff_ID = $row["Staff_ID"];
+        if($staff_ID == 1){
             setcookie("username", "$fname", time() + 86400, "/");
             setcookie("position", "admin", time() + 86400, "/");
+            setcookie("staff_ID", "$staff_ID", time() + 86400, "/");
             header("Location: ../frontend/pages/index.php");
             exit;
         } else {
             setcookie("username", "$fname", time() + 86400, "/");
             setcookie("position", "staff", time() + 86400, "/");
+            setcookie("staff_ID", "$staff_ID", time() + 86400, "/");
             header("Location: ../frontend/pages/index.php");
             exit;
         }
