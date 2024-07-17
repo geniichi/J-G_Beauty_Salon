@@ -1,28 +1,80 @@
-
-.signup-position-checkbox{
+main > div {
+    margin: 0;
+}
+.signup-position-checkbox {
     display: flex;
     align-items: center;
+    margin-bottom: 1rem;
 }
-
-.btn{
-    color: #000000;
+.btn {
+    color: #ffffff;
+    border: none;
+    border-radius: 0.3rem;
+    padding: 0.5rem 1rem;
+    background-color: var(--dark-brown);
+    margin: 1rem auto auto 2rem;
 }
-
 main {
     display: flex;
     justify-content: center;
     align-items: center;
 }
-main > div {height: 100vh;}
-main > div:nth-child(2){
+main > div {
+    height: 100vh;
+}
+main > div:nth-child(1) {
+    width: 45%;
+    background-color: var(--pale-green);
+}
+main > div:nth-child(2) {
     width: 55%;
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
 }
+main > div:nth-child(2) h1 {
+    margin-bottom: 3rem;
+}
 
-main > div:nth-child(1){
-    width: 45%;
-    background-color: var(--pale-green);
+
+.custom-checkbox .checkmark {
+    position: relative;
+    height: 25px;
+    width: 25px;
+    background-color: #ccc;
+    display: block;
+    margin-right: 10px;
+    transition: transfrom 0.3s ease-in-out;
+}
+.custom-checkbox .checkmark::after {
+    content: "";
+    position: absolute;
+    display: none;
+    left: 9px;
+    top: 5px;
+    width: 5px;
+    height: 10px;
+}
+.signup-position-checkbox input[type="checkbox"] {
+    display: none;
+}
+.signup-position-checkbox input[type="checkbox"]:checked + .custom-checkbox .checkmark::after {
+    display: block;
+}
+.signup-position-checkbox input[type="checkbox"]:checked + .custom-checkbox .checkmark {
+    background-color: var(--dark-brown);
+    animation: spring 0.3s ease-in-out;
+}
+
+@keyframes spring {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(0.8);
+    }
+    100% {
+        transform: scale(1);
+    }
 }

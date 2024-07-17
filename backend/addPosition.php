@@ -1,9 +1,9 @@
 <?php
+    session_start();
     include("connect.php");
 
     if ($_SERVER["REQUEST_METHOD"] == "POST") {
-
-        $staff_id = $_COOKIE['user_id'];
+        $staff_id = $_SESSION['user_id'];
         $hair = NULL;
         $nail = NULL;
         $body = NULL;
@@ -37,8 +37,8 @@
             mysqli_query($conn, $sql);
         }
 
-        setcookie("user_id", "$staff_ID", time() - 0, "/");
-        header("Location: ../frontend/pages/login.php");
+        $_SESSION["status"] = "Pending";
+        header("Location: ../frontend/pages/staff_waitroom.php");
 
     }
 

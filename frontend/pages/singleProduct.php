@@ -1,5 +1,6 @@
 <?php
-    if(!isset($_COOKIE["username"])){
+    session_start();
+    if(!isset($_SESSION["username"])){
         header("Location: ../pages/login.php");
     }
 
@@ -12,7 +13,7 @@
         $result = mysqli_query($conn, $sql);
         $row = mysqli_fetch_assoc($result);
 
-        $staff_ID = $_COOKIE["staff_ID"];
+        $user_id = $_SESSION["user_id"];
         $image_path = $row["image_path"];
         $product_name = $row["product_name"];
         $supplier = $row["supplier_ID"];
@@ -39,7 +40,7 @@
             include("./supplier.php");
             include("./productClass.php");
 
-            if($_COOKIE["position"] == "admin"){
+            if($_SESSION["position"] == "admin"){
                 echo '
                     <form action="../../backend/single_product.php" method="POST" enctype="multipart/form-data" id="ProductForm_main">
                         <div>
@@ -199,7 +200,7 @@
 
         <div>
             <form action="../../backend/change_quantity.php" method="POST" id="Quantity_form">
-                <input type="hidden" name="staff_ID" value="<?php echo $staff_ID ?>">
+                <input type="hidden" name="staff_ID" value="<?php echo $user_id ?>">
                 <div>
                     <div>
                         <label for="quantity_amount">Quantity: </label>

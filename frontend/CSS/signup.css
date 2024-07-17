@@ -1,4 +1,3 @@
-
 main {
     display: flex;
     justify-content: center;
@@ -34,13 +33,48 @@ main > div:nth-child(1){
 main > div:nth-child(2) > form {
     display: flex;
     flex-direction: column;
+    width: 55%;
 }
-
+main > div:nth-child(2) > form input{
+    color: #000000;
+    border: none;
+    padding: 0.7rem 1rem;
+    border-radius: 0.3rem;
+    background-color: #d8cece;
+    width: 12rem;
+}
+main > div:nth-child(2) > form > div{
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 2rem;
+    margin-bottom: 2rem;
+    width: 100%;
+}
 main > div:nth-child(2) > form > input{
-    color: #000000;
+    margin-bottom: 2rem;
+    width: 93%;
 }
 
-main > div:nth-child(2) > form > .btn{
-    width: 4rem;
+
+
+main > div:nth-child(2) > form > button{
     color: #000000;
+    border: none;
+    padding: 0.7rem 1rem;
+    border-radius: 0.3rem;
+    background-color: #d8cece;
+    width: 12rem;
+    margin-left: 8.5rem;
+    transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out, transform 0.3s ease-in-out;
+}
+main > div:nth-child(2) > form > button:hover{
+    background-color: #07610C;
+    color: #ffffff;
+}
+main > div:nth-child(2) > form > button:active{
+    transform: scale(0.8);
+}
+
+main > div:nth-child(2) > form > p{
+    text-align: center;
 }

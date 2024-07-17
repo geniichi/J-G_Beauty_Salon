@@ -1,47 +1,66 @@
 <?php
+    session_start();
 
-include("../components/header.php");
-
+    if(!isset($_SESSION["user_id"])){
+        header("Location: ./signup.php");
+    }
+    include("../components/header.php");
 ?>
 
 <style>
     <?php include("../CSS/positions.css")?>
 </style>
 
-    <main>
-        <div>
+<main>
+    <div>
 
-        </div>
-        <div>
-            <h1>Position</h1>
-            <form action="../../backend/addPosition.php" method="POST">
-                <div class="signup-position-checkbox">
-                    <input type="checkbox" name="hair_treatment" value="1">
-                    <label for="hair_treatment"> Hair Treatment</label><br>
-                </div>
-                <div class="signup-position-checkbox">
-                    <input type="checkbox" name="nail_treatment" value="2">
-                    <label for="nail_treatment"> Nail Treatment</label><br>
-                </div>
-                <div class="signup-position-checkbox">
-                    <input type="checkbox" name="body_treatment" value="3">
-                    <label for="body_treatment"> Body Treatment</label><br>
-                </div>
-                <div class="signup-position-checkbox">
-                    <input type="checkbox" name="face_treatment" value="4">
-                    <label for="face_treatment"> Face Treatment</label><br>
-                </div>
-                <div class="signup-position-checkbox">
-                    <input type="checkbox" name="foot_treatment" value="5">
-                    <label for="foot_treatment"> Foot Treatment</label><br>
-                </div>
-                <button type="submit" class="btn">Add Positions</button>
-            </form>
-        </div>
-    </main>
+    </div>
+    <div>
+        <h1>Position</h1>
+        <form action="../../backend/addPosition.php" method="POST">
+            <div class="signup-position-checkbox">
+                <input type="checkbox" id="hair_treatment" name="hair_treatment" class="position_checkbox" value="1">
+                <label for="hair_treatment" class="custom-checkbox">
+                    <span class="checkmark"></span>
+                </label>
+                <p>Hair Treatment</p>
+                <br>
+            </div>
+            <div class="signup-position-checkbox">
+                <input type="checkbox" id="nail_treatment" name="nail_treatment" class="position_checkbox" value="2">
+                <label for="nail_treatment" class="custom-checkbox">
+                    <span class="checkmark"></span>
+                </label>
+                <p>Nail Treatment</p>
+                <br>
+            </div>
+            <div class="signup-position-checkbox">
+                <input type="checkbox" id="body_treatment" name="body_treatment" class="position_checkbox" value="3">
+                <label for="body_treatment" class="custom-checkbox">
+                    <span class="checkmark"></span>
+                </label>
+                <p>Body Treatment</p>
+                <br>
+            </div>
+            <div class="signup-position-checkbox">
+                <input type="checkbox" id="face_treatment" name="face_treatment" class="position_checkbox" value="4">
+                <label for="face_treatment" class="custom-checkbox">
+                    <span class="checkmark"></span>
+                </label>
+                <p>Face Treatment</p>
+                <br>
+            </div>
+            <div class="signup-position-checkbox">
+                <input type="checkbox" id="foot_treatment" name="foot_treatment" class="position_checkbox" value="5">
+                <label for="foot_treatment" class="custom-checkbox">
+                    <span class="checkmark"></span>
+                </label>
+                <p>Foot Treatment</p>
+                <br>
+            </div>
+            <button type="submit" class="btn">Add Positions</button>
+        </form>
+    </div>
+</main>
 
-<?php
-
-include("../components/footer.php");
-
-?>
+<?php include("../components/footer.php"); ?>

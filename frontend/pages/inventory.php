@@ -1,4 +1,5 @@
 <?php
+    session_start();
     include("../components/header.php");
     include("../../backend/connect.php");
 ?>
@@ -11,7 +12,7 @@
 <main>
     <?php
         include("../components/side_navbar.php");
-        if(!isset($_COOKIE["username"])){
+        if(!isset($_SESSION["username"])){
             header("Location: ./login.php");
         }
     ?>
@@ -55,7 +56,7 @@
 
                 </form>
                 <?php
-                    if($_COOKIE["username"] == 'admin'){
+                    if($_SESSION["username"] == 'admin'){
                         echo'
                             <a href="../pages/addProduct.php">
                                 <button>
@@ -121,7 +122,6 @@
                             }
                         }
                     }
-
                 }
 
                 // echo $sql;
@@ -129,11 +129,12 @@
             ?>
             <div>
                 <div id="inventory_row_top">
-                    <p>ID#</p>
+                    <p>Serial ID#</p>
                     <p>Product Name</p>
                     <p>Supplier</p>
                     <p>Product Class</p>
                     <p>Quantity</p>
+                    <p>Location</p>
                 </div>
                 <?php
                     $result = mysqli_query($conn, $sql);
@@ -169,18 +170,21 @@
                                 $stmt->close();
 
                                 $ID = $row["product_ID"];
+                                $serial_ID = $row["serial_Id"];
                                 $name = $row["product_name"];
                                 $quantity = $row["quantity"];
+                                $location = $row["location"];
 
-                                $staff_ID = $_COOKIE["username"];
+                                $staff_ID = $_SESSION["username"];
 
                                 echo '
                                     <div id="inventoryItem_row" onclick="redirectToPage(' . $ID . ')">
-                                        <p>' . $ID . '</p>
+                                        <p>' . $serial_ID . '</p>
                                         <p>' . $name . '</p>
                                         <p>' . $supplierName . '</p>
                                         <p>' . $className . '</p>
                                         <p>' . $quantity . '</p>
+                                        <p>' . $location . '</p>
                                     </div>
                                 ';
                             }

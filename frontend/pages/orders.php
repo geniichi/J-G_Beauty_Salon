@@ -1,5 +1,5 @@
 <?php
-
+session_start();
 include("../components/header.php");
 include("../../backend/connect.php");
 
@@ -43,8 +43,8 @@ include("../../backend/connect.php");
 
                 </form>
                 <?php
-                    if(isset($_COOKIE["username"])){
-                        if($_COOKIE["username"] == 'admin'){
+                    if(isset($_SESSION["username"])){
+                        if($_SESSION["username"] == 'admin'){
                             echo'
                                 <a href="../pages/addOrder.php">
                                     <button>

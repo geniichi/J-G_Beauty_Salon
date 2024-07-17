@@ -113,9 +113,6 @@ main > div > div > div a button{
     align-items: center;
     text-align: center;
 }
-#inventoryItem_row p:nth-of-type(1), #inventory_row_top p:nth-of-type(1){
-    width: 4rem;
-}
 #inventory_row_top{
     color: #686565;
     display: flex;

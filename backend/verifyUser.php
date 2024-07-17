@@ -1,28 +1,35 @@
 <?php
+    session_start();
     include("./connect.php");
 
     $fname = $_POST['fname'];
     $password = $_POST['psw'];
 
-
-    $sql = "SELECT * FROM staff WHERE first_name = '$fname' AND password = '$password'";
+    echo $sql = "SELECT * FROM staff WHERE first_name = '$fname' AND password = '$password'";
 
     $result = mysqli_query($conn, $sql);
 
     $row = mysqli_fetch_assoc($result);
 
     if(mysqli_num_rows($result) != 0){
-        $staff_ID = $row["Staff_ID"];
+        echo $staff_ID = $row["Staff_ID"];
+        $status = $row["employment_status"];
+        $_SESSION["user_id"] = $staff_ID;
         if($staff_ID == 1){
-            setcookie("username", "$fname", time() + 86400, "/");
-            setcookie("position", "admin", time() + 86400, "/");
-            setcookie("staff_ID", "$staff_ID", time() + 86400, "/");
+            $_SESSION["username"] = $fname;
+            $_SESSION["position"] = "admin";
             header("Location: ../frontend/pages/index.php");
             exit;
         } else {
-            setcookie("username", "$fname", time() + 86400, "/");
-            setcookie("position", "staff", time() + 86400, "/");
-            setcookie("staff_ID", "$staff_ID", time() + 86400, "/");
+            if($status == "Pending"){
+                header("Location: ../frontend/pages/staff_waitroom.php");
+                exit;
+            } else if($status == "unemployed"){
+                header("Location: ../frontend/pages/staff_unemployed.php");
+                exit;
+            }
+            $_SESSION["username"] = $fname;
+            $_SESSION["position"] = "staff";
             header("Location: ../frontend/pages/index.php");
             exit;
         }

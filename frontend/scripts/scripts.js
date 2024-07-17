@@ -144,6 +144,61 @@ function toggleOrderDropdown(id) {
         });
     }
 }
+function toggleStaffDropdown(id) {
+
+    const orderDropdown = document.getElementById('order_row' + id);
+
+    if (orderDropdown.classList.contains('show')) {
+        orderDropdown.style.height = orderDropdown.scrollHeight + 'px';
+        requestAnimationFrame(() => {
+            orderDropdown.style.height = '0';
+            orderDropdown.style.opacity = '0';
+        });
+        orderDropdown.addEventListener('transitionend', function handleTransitionEnd() {
+            orderDropdown.classList.remove('show');
+            orderDropdown.style.display = 'none';
+            orderDropdown.removeEventListener('transitionend', handleTransitionEnd);
+        });
+    } else {
+        orderDropdown.style.display = 'flex';
+        requestAnimationFrame(() => {
+            orderDropdown.classList.add('show');
+            orderDropdown.style.height = orderDropdown.scrollHeight + 'px';
+            orderDropdown.style.opacity = '1';
+        });
+        orderDropdown.addEventListener('transitionend', function handleTransitionEnd() {
+            orderDropdown.style.height = 'auto';
+            orderDropdown.removeEventListener('transitionend', handleTransitionEnd);
+        });
+    }
+}
+function toggleStaffDropdown2(id) {
+    const orderDropdown = document.getElementById('order_row2' + id);
+
+    if (orderDropdown.classList.contains('show')) {
+        orderDropdown.style.height = orderDropdown.scrollHeight + 'px';
+        requestAnimationFrame(() => {
+            orderDropdown.style.height = '0';
+            orderDropdown.style.opacity = '0';
+        });
+        orderDropdown.addEventListener('transitionend', function handleTransitionEnd() {
+            orderDropdown.classList.remove('show');
+            orderDropdown.style.display = 'none';
+            orderDropdown.removeEventListener('transitionend', handleTransitionEnd);
+        });
+    } else {
+        orderDropdown.style.display = 'flex';
+        requestAnimationFrame(() => {
+            orderDropdown.classList.add('show');
+            orderDropdown.style.height = orderDropdown.scrollHeight + 'px';
+            orderDropdown.style.opacity = '1';
+        });
+        orderDropdown.addEventListener('transitionend', function handleTransitionEnd() {
+            orderDropdown.style.height = 'auto';
+            orderDropdown.removeEventListener('transitionend', handleTransitionEnd);
+        });
+    }
+}
 
 function toggleProductCheckbox(event, id, price) {
     const checkbox = document.getElementById('product' + id);
@@ -217,5 +272,57 @@ function showWarningDeleteOrder(event, cartId){
 }
 function hideWarningDeleteOrder(){
     const warning = document.getElementById("deleteOrder_warning");
+    warning.style.display = "none";
+}
+
+function hide_error(){
+    const alertContainer = document.getElementById("alert-container");
+    alertContainer.classList.remove("show");
+}
+
+function check_error(event) {
+    const password = document.getElementById("psw").value;
+    const conf_password = document.getElementById("conf_psw").value;
+    const alertContainer = document.getElementById("alert-container");
+    const alertMessage = document.getElementById("alert-message");
+
+    if (password !== conf_password) {
+        event.preventDefault();
+        alertMessage.innerHTML = "Password does not match";
+        alertContainer.classList.add("show");
+
+        setTimeout(function() {
+            alertContainer.classList.remove("show");
+        }, 2500);
+
+        return false;
+    } else {
+        return true;
+    }
+}
+
+function show_warning(num, name, id, event){
+    event.stopPropagation();
+    console.log(num);
+    const message_container = document.getElementById("warning_message");
+    const buttons_container = document.getElementById("staff_warning_buttons");
+    if(num == 1){
+        message_container.innerHTML = 'Do you accept "' + name + '" as a staff?';
+        buttons_container.innerHTML = '<form action="../../backend/accept_staff.php" method="POST"><button name="submit" value="' + id + '">Yes</button></form>';
+    } else if(num == 2){
+        message_container.innerHTML = 'Do you want "' + name + '" to be declined as a staff?';
+        buttons_container.innerHTML = '<form action="../../backend/delete_staff.php" method="POST"><button name="submit" value="' + id + '">Yes</button></form>';
+    } else if(num == 3){
+        message_container.innerHTML = 'Do you want "' + name + '" to be fired?';
+        buttons_container.innerHTML = '<form action="../../backend/delete_staff.php" method="POST"><button name="submit" value="' + id + '">Yes</button></form>';
+    }
+    const warning = document.getElementById("staff_warning");
+    warning.style.display = "flex";
+
+
+}
+
+function close_staff_warning(){
+    const warning = document.getElementById("staff_warning");
     warning.style.display = "none";
 }

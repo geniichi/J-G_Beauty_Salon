@@ -1,5 +1,5 @@
 <?php
-
+session_start();
 include("../components/header.php");
 include("../../backend/connect.php");
 
@@ -122,13 +122,23 @@ while ($cart_row = mysqli_fetch_assoc($cart_result)) {
                                         </div>
                                     ';
                                 } else {
+                                    echo '
+                                        <div class="inventoryItem_row-top">
+                                            <p>Add</p>
+                                            <p>Serial ID</p>
+                                            <p>Name</p>
+                                            <p>Price</p>
+                                            <p>Price</p>
+                                        </div>
+                                    ';
                                     while ($row = mysqli_fetch_assoc($result)) {
 
                                         $ID = $row["product_ID"];
+                                        $serial_ID = $row["serial_Id"];
                                         $name = $row["product_name"];
                                         $price = $row["price"];
 
-                                        $staff_ID = $_COOKIE["username"];
+                                        $staff_ID = $_SESSION["username"];
 
 
                                         echo '
@@ -138,7 +148,7 @@ while ($cart_row = mysqli_fetch_assoc($cart_result)) {
                                             } else {
                                                 echo '<input type="checkbox" name="product[]" id="product' . $ID . '" value="' . $ID . '">';
                                             }
-                                        echo'   <p>' . $ID . '</p>
+                                        echo'   <p>' . $serial_ID . '</p>
                                                 <p>' . $name . '</p>
                                                 <p>&#8369; ' . $price . '</p>
                                             </div>

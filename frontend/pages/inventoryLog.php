@@ -5,10 +5,14 @@
 <?php
     include("../../backend/connect.php");
 
-    $product_ID = $_GET['product_ID'];
-    $staff_ID = $_COOKIE['staff_ID'];
+    $staff_ID = $_SESSION['user_id'];
+    if(isset($_GET['product_ID'])){
+        $product_ID = $_GET['product_ID'];
+        $sql = "SELECT * FROM inventoryItemLog AS l, staff AS s WHERE l.staff_ID = s.Staff_ID AND l.product_ID = '$product_ID' AND l.staff_ID = '$staff_ID' ORDER BY log_ID DESC";
+    } else {
+        $sql = "SELECT * FROM inventoryItemLog AS l, staff AS s, inventoryItem AS i WHERE l.staff_ID = s.Staff_ID AND l.product_ID = i.product_ID ORDER BY log_ID DESC";
+    }
 
-    $sql = "SELECT * FROM inventoryItemLog AS l, staff AS s WHERE l.staff_ID = s.Staff_ID AND l.product_ID = '$product_ID' AND l.staff_ID = '$staff_ID'";
 
     // echo $sql;
 
@@ -17,7 +21,8 @@
     if(mysqli_num_rows($result) != 0){
         echo '
             <div id="inventoryLog">
-            <h2>Inventory Log</h2>
+                <p id="h2-shadow"></p>
+                <h2>Inventory Log</h2>
         ';
         while ($row = mysqli_fetch_assoc($result)) {
             $staff_fname = $row["first_name"];
@@ -27,24 +32,55 @@
             $status = $row["status"];
             $amount = $row["amount_changed"];
 
-            echo '
-                <div>
+            if(isset($_GET['product_ID'])){
+                echo '
                     <div>
-                        <p>' . $staff_fname . ' ' . $staff_lname . '</p>
-                        <p>' . $date . '</p>';
-                    if($status == 'Deducted'){
-                        echo '<p>-' . $amount . '</p>';
-                    } else if($status == 'Increased'){
-                        echo '<p>+' . $amount . '</p>';
-                    }
-            echo '
+                        <div>
+                            <div>
+                                <p><strong>Date:</strong> ' . $date . '</p>
+                                <p><strong>Staff Name:</strong> ' . $staff_fname . ' ' . $staff_lname . '</p>
+                            </div>
+                            <div>
+                                <p><strong>Reason</strong></p>
+                                <p>' . $reason . '</p>
+                            </div>
+                        </div>
+                        <div>';
+                        if($status == 'Deducted'){
+                            echo '<p><strong>-' . $amount . '</strong></p>';
+                        } else if($status == 'Increased'){
+                            echo '<p><strong>+' . $amount . '</strong></p>';
+                        }
+                  echo '</div>
                     </div>
+                ';
+            } else {
+                $product_name = $row["product_name"];
+                echo '
                     <div>
-                        <p>' . $reason . '</p>
-            ';
-            echo '
+                        <div>
+                            <div>
+                                <p><strong>Date:</strong> ' . $date . '</p>
+                                <p><strong>Staff Name:</strong> ' . $staff_fname . ' ' . $staff_lname . '</p>
+                                <p><strong>Product Name:</strong> ' . $product_name . '</p>
+                            </div>
+                            <div>
+                                <p><strong>Reason</strong></p>
+                                <p>' . $reason . '</p>
+                            </div>
+                        </div>
+                        <div>';
+                        if($status == 'Deducted'){
+                            echo '<p><strong>-' . $amount . '</strong></p>';
+                        } else if($status == 'Increased'){
+                            echo '<p><strong>+' . $amount . '</strong></p>';
+                        }
+                echo '</div>
                     </div>
-                </div>';
+                ';
+            }
+
+
         }
         echo '</div>';
     } else {

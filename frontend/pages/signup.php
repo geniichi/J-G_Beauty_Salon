@@ -14,21 +14,21 @@ include("../components/header.php");
     </div>
     <div>
         <div id="signup-logo-img-container">
-            <img src="../images/J&G_Beauty _Salon.png" alt="J&G Beauty Salon">
+            <img src="../images/J&G_Beauty_Salon.png" alt="J&G Beauty Salon">
         </div>
         <h1>Welcome</h1>
-        <form action="../../backend/addUser.php" method="POST">
-            <label for="fname">First Name</label>
-            <input type="text" placeholder="enter first name" name="fname" required>
+        <form action="../../backend/addUser.php" method="POST" onsubmit="check_error(event)">
+            <h4>Name</h4>
+            <div>
+                <input type="text" placeholder="Enter first name" name="fname" required>
+                <input type="text" placeholder="Enter last name" name="lname" required>
+            </div>
 
-            <label for="lname">Last Name</label>
-            <input type="text" placeholder="enter last name" name="lname" required>
+            <h4>Password</h4>
+            <input type="password" placeholder="Enter Password" name="psw" id="psw" required>
 
-            <label for="psw">Password</label>
-            <input type="password" placeholder="Enter Password" name="psw" required>
-
-            <label for="admin-psw">Admin Password</label>
-            <input type="password" placeholder="Enter Admin Password" name="admin-psw" required>
+            <h4>Confirm Password</h4>
+            <input type="password" placeholder="Enter Password Again" name="conf_psw" id="conf_psw" required>
 
             <button type="submit" class="btn">SignUp</button>
             <br>
@@ -40,7 +40,7 @@ include("../components/header.php");
 
 
 <?php
-
+include("../components/alert.php");
 include("../components/footer.php");
 
 ?>

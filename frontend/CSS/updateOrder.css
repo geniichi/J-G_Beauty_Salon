@@ -256,7 +256,25 @@ main > div {
     width: 6rem;
     text-align: center;
 }
-.inventoryItem_row input{
+.inventoryItem_row-top{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    cursor: pointer;
+    border-bottom: 3px solid #bfb2b2;
+    margin-bottom: 0.5rem;
+    padding: 1rem;
+    cursor:default;
+}
+.inventoryItem_row-top p{
+    width: 7rem;
+    text-align: center;
+    cursor:default;
+}
+.inventoryItem_row-top p:nth-of-type(1){
+    width: 3rem;
+}
+.inventoryItem_row input[type="checkbox"]{
     width: 1.5rem;
     height: 1.5rem;
 }

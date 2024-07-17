@@ -1,6 +1,7 @@
 <?php
-include("../components/header.php");
-include("../../backend/connect.php");
+    session_start();
+    include("../components/header.php");
+    include("../../backend/connect.php");
 ?>
 
 <style>

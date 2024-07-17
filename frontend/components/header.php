@@ -21,19 +21,18 @@
         <?php
             // echo $_SERVER["PHP_SELF"];
 
-            if(isset($_COOKIE["username"])){
-
+            if(isset($_SESSION["user_id"])){
                 if ($_SERVER["PHP_SELF"] != "/frontend/pages/login.php" &&
                 $_SERVER["PHP_SELF"] != "/frontend/pages/signup.php" &&
-                $_SERVER["PHP_SELF"] != "/frontend/pages/positions.php") {
-                    $username = $_COOKIE["username"];
-
-
+                $_SERVER["PHP_SELF"] != "/frontend/pages/positions.php" &&
+                $_SERVER["PHP_SELF"] != "/frontend/pages/staff_waitroom.php" &&
+                $_SERVER["PHP_SELF"] != "/frontend/pages/staff_unemployed.php") {
+                    $username = $_SESSION["username"];
 
                     echo '
                         <header>
                             <div id="logo-img-container">
-                                <img src="../images/J&G_Beauty _Salon.png" alt="J&G Beauty Salon">
+                                <img src="../images/J&G_Beauty_Salon.png" alt="J&G Beauty Salon">
                             </div>
 
                             <div>

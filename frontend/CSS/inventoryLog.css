@@ -4,7 +4,26 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    min-height: 24.3rem;
+    position: relative;
+    width: 100%;
+    min-height: 100%;
+}
+#h2-shadow{
+    height: 5rem;
+    border: none;
+}
+#inventoryLog h2{
+    position: fixed;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 5rem;
+    width: 44.5%;
+    background-color: red;
+    text-align: center;
+    background: rgba(255, 255, 255, 0.083);
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
 
 }
 
@@ -15,11 +34,31 @@
     font-size: 2rem;
 }
 
+#inventoryLog > div strong{
+    color: #363231;
+}
+
 #inventoryLog > div{
     margin: 1rem 1.5rem;
     padding: 0.5rem;
-    border: 1px solid #000000;
-    width: 90%;
+    border-bottom: 3px solid #C4C7C2;
+    width: 80%;
+    height: 8rem;
+    display: flex;
+    justify-content: space-between;
+}
+#inventoryLog > div > div:nth-of-type(2) {
+    width: 5rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+#inventoryLog > div > div:nth-of-type(2) p strong{
+    color: #ffffff;
+}
+#inventoryLog > div > div{
+    display: flex;
+    flex-direction: column;
 }
 
 #inventoryLog > div > div:nth-child(1){

@@ -77,7 +77,7 @@ header > div:nth-child(2) > .material-symbols-outlined {
 }
 
 #side-navbar {
-    width: 5rem;
+    width: 7rem;
     background-color: var(--pale-green);
     height: 90.7vh;
     display: flex;
@@ -90,6 +90,19 @@ header > div:nth-child(2) > .material-symbols-outlined {
 
 .side-navabr-icons {
     margin-top: 2rem;
+}
+.side-navabr-icons a{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.side-navabr-icons .material-symbols-outlined{
+    font-size: 1.2rem;
+}
+.side-navabr-icons p{
+    color: var(--dirty-biege);
+    font-size: 0.8rem;
 }
 
 #side-navbar > div > a > .material-symbols-outlined {
@@ -164,6 +177,7 @@ a {
 .inventory-table tr:hover {
     background-color: var(--pale-pink);
 }
+<<<<<<< Updated upstream
 
 button, input[type="submit"] {
     background-color: var(--dark-brown);
@@ -213,3 +227,45 @@ form div {
     font-size: 16px;
 }
 
+=======
+#alert-container{
+    display: flex;
+    flex-direction: column;
+    width: 25rem;
+    height: 7rem;
+    position: fixed;
+    bottom: 1rem;
+    right: -25rem;
+    opacity: 0;
+    border-radius: 0.3rem;
+    color: #000000;
+    background-color: #ffffff;
+    z-index: 99;
+    overflow: hidden;
+    transition: right 0.5s ease, opacity 0.5s ease;
+}
+#alert-container h4{
+    height: 30%;
+    background-color: rgb(176, 30, 30);
+    color: #ffffff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+#alert-container p{
+    height: 70%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#alert-container.show {
+    right: 2rem;
+    opacity: 1;
+}
+
+/* #alert-container.hide {
+    right: -30rem;
+    opacity: 0;
+} */
+>>>>>>> Stashed changes
