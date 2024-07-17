@@ -1,3 +1,4 @@
+<!-- Login Page -->
 <?php
 include("../components/header.php");
 
