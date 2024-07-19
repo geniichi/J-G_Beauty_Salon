@@ -3,6 +3,11 @@ session_start();
 include("../components/header.php");
 include("../../backend/connect.php");
 
+if(!isset($_GET["cart_ID"])){
+    header("Location: ./orders.php");
+    exit();
+}
+
 $cart_ID = $_GET["cart_ID"];
 
 $sql = "SELECT customer_ID FROM cart WHERE cart_ID = '$cart_ID'";
@@ -84,7 +89,7 @@ while ($cart_row = mysqli_fetch_assoc($cart_result)) {
                 <div>
                     <div>
                         <label for="order_date">Order Date</label>
-                        <input type="date" name="order_date" id="order_date">
+                        <input type="date" name="order_date" id="order_date"  value="<?php echo $order_date ?>" readonly>
                     </div>
                     <div>
                         <label for="delivery_date">Delivery Date</label>
@@ -125,9 +130,8 @@ while ($cart_row = mysqli_fetch_assoc($cart_result)) {
                                     echo '
                                         <div class="inventoryItem_row-top">
                                             <p>Add</p>
-                                            <p>Serial ID</p>
+                                            <p>Serial ID#</p>
                                             <p>Name</p>
-                                            <p>Price</p>
                                             <p>Price</p>
                                         </div>
                                     ';
@@ -153,6 +157,7 @@ while ($cart_row = mysqli_fetch_assoc($cart_result)) {
                                                 <p>&#8369; ' . $price . '</p>
                                             </div>
                                             <input type="hidden" id="total_price" value="0">
+
                                         ';
                                     }
                                 }
@@ -161,7 +166,6 @@ while ($cart_row = mysqli_fetch_assoc($cart_result)) {
                             }
                         ?>
                         <input type="hidden" id="selected_product_ids" name="selected_product_ids" value="">
-
                     </div>
                 </div>
             </div>

@@ -127,6 +127,7 @@
                                         $first_name = $row["first_name"];
                                         $last_name = $row["last_name"];
                                         $position = $row["position"];
+                                        $fullname = $first_name . " " . $last_name;
 
                                         echo '
                                             <div id="inventoryItem_row" onclick="toggleStaffDropdown2(' . $ID . ')">

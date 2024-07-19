@@ -224,31 +224,6 @@ function clearSelections() {
     });
 }
 
-document.addEventListener('DOMContentLoaded', function() {
-    const today = new Date();
-    const yyyy = today.getFullYear();
-    const mm = String(today.getMonth() + 1).padStart(2, '0');
-    const dd = String(today.getDate()).padStart(2, '0');
-
-    const todayStr = `${yyyy}-${mm}-${dd}`;
-
-    const orderDateInput = document.getElementById('order_date');
-    orderDateInput.value = todayStr;
-    orderDateInput.readOnly = true;
-
-    const deliveryDate = new Date();
-    deliveryDate.setDate(today.getDate() + 5);
-    const yyyyDelivery = deliveryDate.getFullYear();
-    const mmDelivery = String(deliveryDate.getMonth() + 1).padStart(2, '0');
-    const ddDelivery = String(deliveryDate.getDate()).padStart(2, '0');
-
-    const deliveryDateStr = `${yyyyDelivery}-${mmDelivery}-${ddDelivery}`;
-
-    const deliveryDateInput = document.getElementById('delivery_date');
-    deliveryDateInput.value = deliveryDateStr;
-});
-
-
 function updateSelectedProducts() {
     const selectedProducts = document.querySelectorAll('input[name="product[]"]:checked');
     const selectedIDs = [];
@@ -258,10 +233,72 @@ function updateSelectedProducts() {
     document.getElementById("selected_product_ids").value = selectedIDs.join(",");
 }
 
-updateSelectedProducts();
-document.querySelectorAll('input[name="product[]"]').forEach(function(checkbox) {
-    checkbox.addEventListener("change", updateSelectedProducts);
+document.addEventListener('DOMContentLoaded', function() {
+    const currentURL = window.location.href;
+    if (currentURL.includes("addOrder.php")){
+        const today = new Date();
+        const yyyy = today.getFullYear();
+        const mm = String(today.getMonth() + 1).padStart(2, '0');
+        const dd = String(today.getDate()).padStart(2, '0');
+
+        const todayStr = `${yyyy}-${mm}-${dd}`;
+
+        const orderDateInput = document.getElementById('order_date');
+        orderDateInput.value = todayStr;
+        orderDateInput.readOnly = true;
+
+        const deliveryDate = new Date();
+        deliveryDate.setDate(today.getDate() + 5);
+        const yyyyDelivery = deliveryDate.getFullYear();
+        const mmDelivery = String(deliveryDate.getMonth() + 1).padStart(2, '0');
+        const ddDelivery = String(deliveryDate.getDate()).padStart(2, '0');
+
+        const deliveryDateStr = `${yyyyDelivery}-${mmDelivery}-${ddDelivery}`;
+
+        const deliveryDateInput = document.getElementById('delivery_date');
+        deliveryDateInput.value = deliveryDateStr;
+
+    } else if(currentURL.includes("changeOrder.php")){
+        updateSelectedProducts();
+        document.querySelectorAll('input[name="product[]"]').forEach(function(checkbox) {
+            checkbox.addEventListener("change", updateSelectedProducts);
+        });
+    } else if (currentURL.includes("login.php")){
+        const currentURL = window.location.href;
+        console.log(currentURL);
+
+        const queryString = window.location.search;
+        const urlParams = new URLSearchParams(queryString);
+        const error = urlParams.get('error');
+
+        const alertContainer = document.getElementById("alert-container");
+        const alertMessage = document.getElementById("alert-message");
+
+        if (error == 1) {
+            alertMessage.innerHTML = "User does not exist";
+            alertContainer.classList.add("show");
+
+            setTimeout(function () {
+                alertContainer.classList.remove("show");
+            }, 3000);
+            setTimeout(function () {
+                window.location.href = 'http://localhost:3000/frontend/pages/login.php';
+            }, 5000);
+
+        } else if (error == 2) {
+            alertMessage.innerHTML = "Password is incorrect";
+            alertContainer.classList.add("show");
+
+            setTimeout(function () {
+                alertContainer.classList.remove("show");
+                window.location.href = 'http://localhost:3000/frontend/pages/login.php';
+            }, 3000);
+        }
+    }
+
 });
+
+
 
 function showWarningDeleteOrder(event, cartId){
     event.preventDefault();
@@ -300,6 +337,7 @@ function check_error(event) {
         return true;
     }
 }
+
 
 function show_warning(num, name, id, event){
     event.stopPropagation();

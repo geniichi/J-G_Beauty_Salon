@@ -13,6 +13,7 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
     <!-- Scripts -->
     <script defer src="../scripts/scripts.js"></script>
+
     <title>Document</title>
 </head>
 <body>
@@ -33,15 +34,42 @@
                         <header>
                             <div id="logo-img-container">
                                 <img src="../images/J&G_Beauty_Salon.png" alt="J&G Beauty Salon">
-                            </div>
+                            </div>';
 
-                            <div>
-                                <h4>' . $username . '</h4>
-                                <span class="material-symbols-outlined" onclick="showLogOut()">
-                                    account_circle
-                                </span>
-                            </div>
+                            if (strpos($_SERVER["PHP_SELF"], "inventory") !== false ||
+                                strpos($_SERVER["PHP_SELF"], "singleProduct") !== false){
+                                echo "INVENTORY";
+                            } else if(strpos($_SERVER["PHP_SELF"], "index") !== false){
+                                echo "DASHBOARD";
+                            } else if(strpos($_SERVER["PHP_SELF"], "orders") !== false ||
+                                strpos($_SERVER["PHP_SELF"], "changeOrder") !== false){
+                                echo "ORDERS";
+                            } else if(strpos($_SERVER["PHP_SELF"], "staff") !== false){
+                                echo "STAFF";
+                            } else if(strpos($_SERVER["PHP_SELF"], "addOrder") !== false){
+                                echo "ADD ORDER";
+                            } else if(strpos($_SERVER["PHP_SELF"], "addProduct") !== false){
+                                echo "ADD PRODUCT";
+                            }
 
+
+                    echo'   <div>
+                                <h4>' . $username . '</h4>';
+
+                            if($_SESSION["position"] == "admin"){
+                                echo '
+                                    <span class="material-symbols-outlined" onclick="showLogOut()">
+                                        admin_panel_settings
+                                    </span>
+                                ';
+                            } else {
+                                echo '
+                                    <span class="material-symbols-outlined" onclick="showLogOut()">
+                                        account_circle
+                                    </span>
+                                ';
+                            }
+                    echo'</div>
                             <div id="header-account-dropdown">
                                 <ul>
                                     <li><a href="../pages/index.php">Profile</a></li>

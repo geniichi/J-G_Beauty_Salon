@@ -1,7 +1,12 @@
 <?php
+session_start();
 include("../components/header.php");
 include("../../backend/connect.php");
 ?>
+
+<style>
+    <?php include("../CSS/booking.css")?>
+</style>
 
 <main>
     <?php include("../components/side_navbar.php"); ?>

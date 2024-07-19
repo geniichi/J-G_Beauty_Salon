@@ -11,12 +11,59 @@ main > div > div{
 }
 
 main > div > div:nth-of-type(1){
-    
+    max-height: 90.8vh;
+    overflow-y: auto;
 }
 main > div > div:nth-of-type(2){
     max-height: 90.8vh;
     overflow-y: auto;
 }
 #inventory_log-container > div > h2{
-    width: 46.8%;
+    width: 45.7%;
+}
+
+#todays_orders{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin-left: 2rem;
+    position: relative;
+}
+
+/*  */
+#todays_orders::-webkit-scrollbar {
+    display: none;
+}
+#todays_orders > h2{
+    position: fixed;
+    top: 6rem;
+    width: 40%;
+    text-align: center;
+    padding: 1rem 0rem;
+    border-radius: 0.3rem;
+    background-color: rgba(100, 89, 86, 0.672);
+    backdrop-filter: blur(5px);
+    border: 3px solid rgba(204, 197, 195, 0.992);
+}
+#todays_orders > div:nth-of-type(1){
+    margin-top: 5rem;
+}
+#todays_orders > div{
+    display: flex;
+    justify-content: space-around;
+    width: 85%;
+    margin-bottom: 1rem;
+    border-bottom: 3px solid #A79895;
+    padding-bottom: 1rem;
+}
+#todays_orders > div > div > p:nth-of-type(odd){
+    font-weight: bold;
+    color: #322c32;
+}
+#todays_orders > div > div > p:nth-of-type(even){
+    margin-bottom: 0.7rem;
+}
+#todays_orders > div > div > a{
+
 }

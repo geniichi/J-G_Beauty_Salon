@@ -1,4 +1,7 @@
 <?php
+    // if(!isset($_SESSION["user_id"])){
+    //     header("Location: ../pages/login.php");
+    // }
     if ($_SERVER["PHP_SELF"] != "/frontend/pages/staff_waitroom.php") {
         echo '
             <nav id="side-navbar">
@@ -18,12 +21,6 @@
                     <a href="../pages/orders.php">
                         <span class="material-symbols-outlined">orders</span>
                         <p>Orders</p>
-                    </a>
-                </div>
-                <div class="side-navabr-icons">
-                    <a href="../pages/booking.php">
-                        <span class="material-symbols-outlined">package</span>
-                        <p>Appointments</p>
                     </a>
                 </div>';
                     if($_SESSION["user_id"] == 1){

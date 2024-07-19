@@ -19,7 +19,7 @@ if(isset($_POST["Update"])){
     $sql = "UPDATE customer SET first_name = '$first_name', last_name = '$last_name', contact_No = '$contact', address = '$address' WHERE customer_ID = $customer_ID";
     mysqli_query($conn, $sql);
 
-    if(isset($_POST["custom_payment"])){
+    if(!empty($_POST["custom_payment"])){
         $payment_method = $_POST["custom_payment"];
     } else if (isset($_POST["payment_method"])){
         $payment_method = $_POST["payment_method"];
@@ -44,14 +44,17 @@ if(isset($_POST["Update"])){
             mysqli_query($conn, $sql);
         }
     }
-
-
-    foreach ($updatedProductIds as $product_id) { // from updated(array => single)
-        if(!in_array($product_id, $currentProduct_IDs)){
-            $sql = "INSERT INTO `order` (cart_ID, product_ID) VALUES($cart_ID, $product_id)";
-            mysqli_query($conn, $sql);
+    
+    if(!empty($updatedProductIds)){
+        foreach ($updatedProductIds as $product_id) { // from updated(array => single)
+            echo $product_id;
+            if(!in_array($product_id, $currentProduct_IDs)){
+                echo $sql = "INSERT INTO `order` (cart_ID, product_ID) VALUES($cart_ID, $product_id)";
+                mysqli_query($conn, $sql);
+            }
         }
     }
+
 
     header("Location: ../frontend/pages/changeOrder.php?cart_ID=$cart_ID");
 

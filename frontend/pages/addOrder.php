@@ -1,5 +1,5 @@
 <?php
-
+session_start();
 include("../components/header.php");
 include("../../backend/connect.php");
 
@@ -13,7 +13,7 @@ include("../../backend/connect.php");
 <main>
     <?php include("../components/side_navbar.php");?>
     <div>
-        <form action="../../backend/add_order.php" method="POST" enctype="multipart/form-data" id="addForm_main">
+        <form action="../../backend/add_order.php" method="POST" id="addForm_main">
             <div>
                 <h3>Customer</h3>
                 <div>
@@ -75,7 +75,7 @@ include("../../backend/connect.php");
                                         $name = $row["product_name"];
                                         $price = $row["price"];
 
-                                        $staff_ID = $_COOKIE["username"];
+                                        $staff_ID = $_SESSION["username"];
 
 
                                         echo '

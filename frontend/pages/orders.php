@@ -57,7 +57,6 @@ include("../../backend/connect.php");
                             ';
                         }
                     } else {
-                        header("Location: ./login.php");
                     }
 
                 ?>
@@ -90,7 +89,6 @@ include("../../backend/connect.php");
                         $conditions[] = "payment_option LIKE '$payment_opt'";
                     }
 
-                    // Add conditions to the SQL query
                     if (count($conditions) > 0) {
                         $sql .= " WHERE " . implode(' AND ', $conditions);
                     }
@@ -119,6 +117,8 @@ include("../../backend/connect.php");
                             } else if($_GET["sortBy"] == 2){
                                 $sql .= " ORDER BY cart_ID DESC";
                             }
+                        } else {
+                            $sql .= " ORDER BY cart_ID DESC";
                         }
                     }
 
@@ -172,7 +172,7 @@ include("../../backend/connect.php");
                                         <p>' . $order_date . '</p>
                                         <p>' . $delivery_date . '</p>
                                         <p>' . $price . '</p>
-                                        <a href="./changeOrder.php?cart_ID=' . $cart_ID . '">Update</a>
+                                        <a href="./changeOrder.php?cart_ID=' . $cart_ID . '" onclick="event.stopPropagation();">Update</a>
                                     </div>
                                     <div class="order_row_dropdown" id="order_row' . $cart_ID . '">';
 

@@ -16,10 +16,12 @@ $row = mysqli_fetch_assoc($result);
 $status = $row["employment_status"];
 
 if(isset($_POST["try_again"])){
-    if($status != "Pending"){
-        header("Location: ./index.php");
-    } else if($status != "unemployed"){
+    if($status == "Pending"){
+        header("Location: ./staff_waitroom.php");
+    } else if($status == "unemployed"){
         header("Location: ./staff_unemployed.php");
+    } else if($status == "employed"){
+        header("Location: ./index.php");
     }
 } else if(isset($_POST["login"])) {
     header("Location: ./login.php");

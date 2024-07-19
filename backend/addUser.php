@@ -7,7 +7,7 @@
 
         $fname = $_POST['fname'];
         $lname = $_POST['lname'];
-        $psw = $_POST['psw'];
+        $psw = password_hash($_POST['psw'], PASSWORD_DEFAULT);
         $conf_psw = $_POST['conf_psw'];
 
         $sql = "INSERT INTO staff (first_name, last_name, employment_status, password) VALUES ('$fname', '$lname', 'Pending', '$psw')";

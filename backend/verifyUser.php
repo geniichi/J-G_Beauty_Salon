@@ -5,6 +5,14 @@
     $fname = $_POST['fname'];
     $password = $_POST['psw'];
 
+    echo $sql = "SELECT password FROM staff WHERE first_name = '$fname'";
+    $result = mysqli_query($conn, $sql);
+    $row = mysqli_fetch_assoc($result);
+
+    $hashed_password = $row["password"];
+
+    password_verify($password, $hashed_password);
+
     echo $sql = "SELECT * FROM staff WHERE first_name = '$fname' AND password = '$password'";
 
     $result = mysqli_query($conn, $sql);
