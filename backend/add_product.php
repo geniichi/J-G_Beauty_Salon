@@ -9,6 +9,8 @@ if(isset($_POST['Add'])){
     $quantity = $_POST["quantity"];
     $price = $_POST["price"];
     $description = $_POST["description"];
+    $serial_number = $_POST["serial_number"];
+    $location = $_POST["location"];
 
     $file_name = $_FILES['image']['name'];
     $file_name;
@@ -16,8 +18,8 @@ if(isset($_POST['Add'])){
     $folder = '../frontend/images/'.$file_name;
 
     $sql = "
-        INSERT INTO inventoryItem(product_name, supplier_ID, productClass_ID, quantity, price, description, image_path)
-        VALUES('$name', $supplier, $productClass, $quantity, $price, '$description', '$file_name')
+        INSERT INTO inventoryItem(serial_Id, product_name, supplier_ID, productClass_ID, quantity, price, description, image_path, location)
+        VALUES('$serial_number', '$name', $supplier, $productClass, $quantity, $price, '$description', '$file_name', '$location')
         ";
 
     mysqli_query($conn, $sql);
@@ -30,5 +32,5 @@ if(isset($_POST['Add'])){
 
     mysqli_close($conn);
 
-    header("Location: ../frontend/pages/addProduct.php");
+    header("Location: ../frontend/pages/inventory.php");
 }

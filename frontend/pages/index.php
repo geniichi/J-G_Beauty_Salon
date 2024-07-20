@@ -17,7 +17,7 @@
 </style>
 
 
-<main>
+    <main>
     <?php include("../components/side_navbar.php");?>
     <div>
         <div id="todays_orders">

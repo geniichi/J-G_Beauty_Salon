@@ -131,6 +131,7 @@ main > div {
 }
 #addForm_main > div:nth-child(1) input[type="submit"]:nth-of-type(2){
     background-color: #891c10;
+    width: 8rem;
 }
 #addForm_main > div:nth-child(1) input[type="submit"]:nth-of-type(2):hover{
     background-color: #b73021;

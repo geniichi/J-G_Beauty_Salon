@@ -33,6 +33,12 @@ include("../components/header.php");
             <div>
                 <!-- Product Name -->
                 <input type="text" name="product_name" placeholder="Enter Product Name">
+                <div>
+                    <!-- Serial Number -->
+                    <input type="text" name="serial_number" placeholder="Enter Serial Number">
+                    <!-- Location -->
+                    <input type="text" name="location" placeholder="Enter Location">
+                </div>
                 <!-- Supplier -->
                 <div>
                     <select name="supplier" required>

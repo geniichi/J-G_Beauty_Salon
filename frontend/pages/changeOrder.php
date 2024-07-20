@@ -108,7 +108,7 @@ while ($cart_row = mysqli_fetch_assoc($cart_result)) {
 
                 <div>
                     <input type="submit" name="Update" value="Update">
-                    <input type="submit" name="Delete" value="Delete" onclick="showWarningDeleteOrder(event, <?php echo $cart_ID ?>)">
+                    <input type="submit" name="Delete" value="Mark as Done" onclick="showWarningDeleteOrder(event, <?php echo $cart_ID ?>)">
                 </div>
 
             </div>

@@ -38,6 +38,11 @@ include("../../backend/connect.php");
                             <option value="1">Ascending</option>
                             <option value="2">Descending</option>
                         </select>
+                        <select name="status">
+                            <option value="" disabled selected class="placeholder">Status</option>
+                            <option value="1">Pending</option>
+                            <option value="2">Done</option>
+                        </select>
                         <input type="submit" value="submit" name="submit">
                     </div>
 
@@ -89,9 +94,21 @@ include("../../backend/connect.php");
                         $conditions[] = "payment_option LIKE '$payment_opt'";
                     }
 
+                    if(isset($_GET["status"])){
+                        if($_GET["status"] == 1){
+                            $conditions[] = "status LIKE 'pending'";
+                        } else if($_GET["status"] == 2){
+                            $conditions[] = "status LIKE 'done'";
+                        }
+                    } else {
+                        $conditions[] = "status LIKE 'pending'";
+                    }
+
                     if (count($conditions) > 0) {
                         $sql .= " WHERE " . implode(' AND ', $conditions);
                     }
+
+
 
                     // Sort On
                     if(isset($_GET["sortOn"])){

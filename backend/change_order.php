@@ -44,7 +44,7 @@ if(isset($_POST["Update"])){
             mysqli_query($conn, $sql);
         }
     }
-    
+
     if(!empty($updatedProductIds)){
         foreach ($updatedProductIds as $product_id) { // from updated(array => single)
             echo $product_id;
@@ -60,22 +60,9 @@ if(isset($_POST["Update"])){
 
 } else if(isset($_POST["Delete"])){
 
-    $sql = "SELECT customer_ID FROM cart WHERE cart_ID = $cart_ID"; // one
-    $Costumers_result = mysqli_query($conn, $sql);
-    $row = mysqli_fetch_assoc($Costumers_result);
-    $customer_ID = $row["customer_ID"];
+    $sql = "UPDATE cart SET status = 'done' WHERE cart_ID = $cart_ID";
+    mysqli_query($conn, $sql);
 
-    // Delete Order
-    $delete_sql = "DELETE FROM `order` WHERE cart_ID = $cart_ID";
-    mysqli_query($conn, $delete_sql);
-
-    // Delete Cart
-    $delete_sql = "DELETE FROM cart WHERE cart_ID = $cart_ID";
-    mysqli_query($conn, $delete_sql);
-
-    // Delete customer
-    $delete_sql = "DELETE FROM customer WHERE customer_ID = $customer_ID";
-    mysqli_query($conn, $delete_sql);
 
     header("Location: ../frontend/pages/orders.php");
 }

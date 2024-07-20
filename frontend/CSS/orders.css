@@ -76,7 +76,7 @@ main > div > div > div a button{
 #search-form > div:nth-child(2){
     display: flex;
     justify-content: space-between;
-    width: 31rem;
+    width: 37rem;
 }
 #search-form > div:nth-child(2) input{
     border: none;

@@ -91,6 +91,11 @@ main > div {
 }
 #addForm_main > div:nth-child(2) > div{
     display: flex;
+    justify-content: space-between;
+    width: 27rem;
+}
+#addForm_main > div:nth-child(2) > div > input{
+    width: 11rem;
 }
 #addForm_main > div:nth-child(2) input, textarea {
     border: none;
